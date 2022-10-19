@@ -16,7 +16,6 @@ const withMDX = require('@next/mdx')({
   },
 })
 
-
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
