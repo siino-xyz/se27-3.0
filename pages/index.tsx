@@ -4,7 +4,9 @@ import type { NextPage } from "next";
 const Home: NextPage = () => {
   return (
     <div>
-      <p className={text}>開閉ボタンはこちらです。</p>
+      <p className={text}>
+        このフォントは、全角ゴシックアンティークというやつで、GoogleFontsから取ってきました
+      </p>
     </div>
   );
 };

@@ -73,7 +73,13 @@ export const globalVars = createGlobalTheme(":root", {
     full: "100%",
     screenHeight: "100vh",
   },
-  fonts: {},
+  fonts: {
+    initial:
+      'Zen Kaku Gothic Antique, "Helvetica Neue",Arial,"Hiragino Kaku Gothic ProN","Hiragino Sans",Meiryo,sans-serif',
+    kiChoJIS:
+      '"kiChoJIS",Arial,"Hiragino Kaku Gothic ProN","Hiragino Sans",Meiryo,sans-serif',
+    MOBO: '"MOBO",Arial,"Hiragino Kaku Gothic ProN","Hiragino Sans",Meiryo,sans-serif',
+  },
   zIndex: {
     auto: "auto",
     "-1": "-1",

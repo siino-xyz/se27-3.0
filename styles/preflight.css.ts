@@ -1,5 +1,5 @@
 import { globalStyle } from "@vanilla-extract/css";
-// import { fonts } from "styles/variables.css";
+import { fonts } from "styles/variables.css";
 
 /*
  *  Tailwind CSS Preflight
@@ -29,7 +29,7 @@ globalStyle("html", {
   WebkitTextSizeAdjust: "100%" /* 2 */,
   MozTabSize: 4 /* 3 */,
   tabSize: 4 /* 3 */,
-  // fontFamily: fonts.japanese /* 4 */,
+  fontFamily: fonts.initial /* 4 */,
 });
 
 /*
@@ -94,7 +94,7 @@ globalStyle("b, strong", {
 */
 
 globalStyle("code, kbd, samp, pre", {
-  // fontFamily: fonts.english /* 1 */,
+  fontFamily: fonts.initial /* 1 */,
   fontSize: "1em" /* 2 */,
 });
 
