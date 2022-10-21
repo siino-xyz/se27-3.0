@@ -9,7 +9,7 @@ import {
 } from "@types";
 import { client } from "./client";
 
-const limit = parseInt(config.defaultLimit);
+export const PARPAGE_LIMIT = parseInt(config.defaultLimit);
 
 export const getContents = async (
   currentPage: number = 1,
@@ -21,7 +21,7 @@ export const getContents = async (
   pager?: number[];
 }> => {
   const [{ blogs, pager }, category, tags] = await Promise.all([
-    getBlogsByFliter(limit, currentPage, articleFilter),
+    getBlogsByFliter(PARPAGE_LIMIT, currentPage, articleFilter),
     getCategories(),
     getTags(),
   ]);
@@ -52,8 +52,11 @@ export const getBlogById = async (blogId: string) => {
   return res;
 };
 
-export const getCategories = async () => {
-  const res = await client.getList<ICategory>({ endpoint: "category" });
+export const getCategories = async (queries?: Queries) => {
+  const res = await client.getList<ICategory>({
+    endpoint: "category",
+    queries,
+  });
   return res;
 };
 
