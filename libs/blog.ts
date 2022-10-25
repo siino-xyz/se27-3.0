@@ -10,10 +10,12 @@ import {
 import { client } from "./client";
 
 export const PARPAGE_LIMIT = parseInt(config.defaultLimit);
+export const MIN_LIMIT = parseInt(config.defaultMinLimit);
 
 export const getContents = async (
-  currentPage: number = 1,
-  articleFilter?: string
+  limit: number = 1,
+  articleFilter?: string,
+  currentPage: number = 1
 ): Promise<{
   blogs: IBlog[];
   categories: ICategory[];
@@ -21,7 +23,7 @@ export const getContents = async (
   pager?: number[];
 }> => {
   const [{ blogs, pager }, category, tags] = await Promise.all([
-    getBlogsByFliter(PARPAGE_LIMIT, currentPage, articleFilter),
+    getBlogsByFliter(limit, currentPage, articleFilter),
     getCategories(),
     getTags(),
   ]);
