@@ -6,7 +6,6 @@ import type { NextPage } from "next";
 const Home: NextPage = () => {
   return (
     <ColorModeProvider>
-      <ColorModeToggle />
       <p className={text}>
         このフォントは、全角ゴシックアンティークというやつで、GoogleFontsから取ってきました
       </p>

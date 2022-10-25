@@ -1,3 +1,9 @@
+import { ColorModeToggle } from "@components/colorModeToggle/ColorModeToggle";
+
 export const Header = () => {
-  return <div>Header</div>;
+  return (
+    <header>
+      <ColorModeToggle />
+    </header>
+  );
 };

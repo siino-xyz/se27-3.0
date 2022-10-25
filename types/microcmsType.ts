@@ -12,6 +12,7 @@ export type IBlog = {
   title: string;
   category?: ICategory;
   tag?: ITag;
+  body: string;
   eyeCatch: MicroCMSImage;
 } & ContentBase;
 
@@ -20,7 +21,7 @@ export type ICategory = {
 } & ContentBase;
 
 export type ITag = {
-  tagName: string;
+  tagName?: string;
 } & ContentBase;
 
 export type MicroCMSImage = {
