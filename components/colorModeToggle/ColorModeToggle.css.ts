@@ -1,12 +1,6 @@
 import { style } from "@vanilla-extract/css";
 
-export const toggleStyle = style([
-  {
-    ":hover": {
-      background: "#aaa",
-    },
-  },
-]);
+export const toggleStyle = style([{}]);
 
 export const dataStateOn = style([
   {
