@@ -25,7 +25,7 @@ const postPage: NextPageWithLayout<PostPageProps> = ({
     <div>
       <BlogImage src={article.eyeCatch.url} alt={"alt"} />
       <h1>{article.title}</h1>
-      <div></div>
+      {/* <PostMeta tags={article.tag} /> */}
       <div dangerouslySetInnerHTML={{ __html: sanitizedHtml }} />
     </div>
   );

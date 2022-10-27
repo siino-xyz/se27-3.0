@@ -8,12 +8,12 @@ import {
 
 type ColorMode = "dark" | "light";
 
-export const themekey = "se27ColorModeToggle";
-
 type ColorModeContextValues = {
   colorMode: ColorMode | null;
   setColorMode: (colorMode: ColorMode) => void;
 };
+
+export const themekey = "se27ColorModeToggle";
 
 export const ColorModeContext = createContext<ColorModeContextValues>({
   colorMode: null,

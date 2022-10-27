@@ -11,7 +11,7 @@ export type ContentBase = MicroCMSListContent;
 export type IBlog = {
   title: string;
   category?: ICategory;
-  tag?: ITag;
+  tag?: ITag[];
   body: string;
   eyeCatch: MicroCMSImage;
 } & ContentBase;
@@ -21,7 +21,7 @@ export type ICategory = {
 } & ContentBase;
 
 export type ITag = {
-  tagName?: string;
+  name?: string;
 } & ContentBase;
 
 export type MicroCMSImage = {

@@ -8,5 +8,15 @@ type PostMetaProps = {
 };
 
 export const PostMeta = ({ category, tags, createdAt }: PostMetaProps) => {
-  return <div></div>;
+  return (
+    <div>
+      <ul>
+        {tags?.map((tag) => (
+          <li key={tag.id}>
+            <span>{tag.name}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 };
