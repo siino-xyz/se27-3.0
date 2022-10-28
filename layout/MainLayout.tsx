@@ -11,7 +11,7 @@ export const MainLayout = ({ children }: MainLayoutProps) => {
   return (
     <ColorModeProvider>
       <div className={styles.wrapper}>
-        <Header />
+        <Header home={false} />
         <main className={styles.main}>{children}</main>
         <Footer />
       </div>

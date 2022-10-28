@@ -16,3 +16,9 @@ export const blogHeaderLogo = style([
     fill: `rgb(${rgb.brand})`,
   },
 ]);
+
+export const homeLogo = style({
+  width: 94,
+  height: 26,
+  fill: `rgb(${rgb.brand})`,
+});

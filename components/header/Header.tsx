@@ -1,11 +1,15 @@
 import { ColorModeToggle } from "@components/colorModeToggle/ColorModeToggle";
-import { Se27BlogLogo } from "@components/svgAssets/SvgAssets";
 import { header } from "./Header.css";
+import { HomeLogo, Se27BlogLogo } from "@components/svgAssets/SvgAssets";
+import { ReactElement } from "react";
 
-export const Header = () => {
+type HeaderProps = {
+  home: boolean;
+};
+export const Header = ({ home }: HeaderProps) => {
   return (
     <header className={header}>
-      <Se27BlogLogo />
+      {home ? <HomeLogo /> : <Se27BlogLogo />}
       <ColorModeToggle />
     </header>
   );
