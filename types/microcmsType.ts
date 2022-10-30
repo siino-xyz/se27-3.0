@@ -8,16 +8,23 @@ import {
 export type Queries = MicroCMSQueries;
 export type ContentBase = MicroCMSListContent;
 
+export type HeadingTypes = {
+  text: string | null;
+  id: string;
+  name: string;
+};
+
 export type IBlog = {
   title: string;
   category?: ICategory;
+  headingVisible?: boolean;
   tag?: ITag[];
   body: string;
   eyeCatch: MicroCMSImage;
 } & ContentBase;
 
 export type ICategory = {
-  categoryName: string;
+  name: string;
 } & ContentBase;
 
 export type ITag = {

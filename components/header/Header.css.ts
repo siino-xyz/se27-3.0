@@ -12,3 +12,9 @@ export const header = style([
     paddingY: "small",
   }),
 ]);
+
+export const linkLogo = style([
+  {
+    cursor: "pointer",
+  },
+]);

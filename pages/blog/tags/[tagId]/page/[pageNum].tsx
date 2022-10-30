@@ -1,54 +1,58 @@
 import { PostCard } from "@components";
 import { MainLayout } from "@layout/MainLayout";
-import { getBlogs, getCategories, getContents, PARPAGE_LIMIT } from "@libs";
+import { getBlogs, getContents, getTags, PARPAGE_LIMIT } from "@libs";
 import { NextPageWithLayout } from "@pages/_app";
 import { IBlog, ICategory, ITag } from "@types";
-import { GetStaticPaths, GetStaticProps, NextPage } from "next";
+import { GetStaticPaths, GetStaticProps } from "next";
 import React, { ReactElement } from "react";
 
-type CategoryPageProps = {
+type TagPageProps = {
   blogs: IBlog[];
   categories: ICategory[];
   tags: ITag[];
   pager: number;
   currentPage: number;
-  selectedCategory: string;
+  selectedTag: string;
 };
 
-const categoryPage: NextPageWithLayout<CategoryPageProps> = ({
+const tagIndex: NextPageWithLayout<TagPageProps> = ({
   blogs,
   categories,
   tags,
 }) => {
   return (
     <div>
-      <PostCard blogs={blogs} />
+      {/* <PostCard blogs={blogs} /> */}
+
+      {blogs.map((blog) => (
+        <span key={blog.id}>{blog.title}</span>
+      ))}
     </div>
   );
 };
 
-categoryPage.getLayout = function getLayout(categoryPage: ReactElement) {
-  return <MainLayout>{categoryPage}</MainLayout>;
+tagIndex.getLayout = function getLayout(tagIndex: ReactElement) {
+  return <MainLayout>{tagIndex}</MainLayout>;
 };
 
-export default categoryPage;
+export default tagIndex;
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const pageNum: any = params?.pageNum || "1";
 
-  const categoryId = params?.categoryId as string;
+  const tagId = params?.tagId as string;
 
   const articleFilter =
-    categoryId !== undefined ? `category[equals]${categoryId}` : undefined;
+    tagId !== undefined ? `tag[contains]${tagId}` : undefined;
 
   const { blogs, tags, categories, pager } = await getContents(
     pageNum,
     articleFilter
   );
 
-  const selectedCategory =
-    categoryId !== undefined
-      ? categories.find((category) => category.id === categoryId)
+  const selectedTag =
+    tagId !== undefined
+      ? tags.find((content) => content.id === tagId)
       : undefined;
 
   return {
@@ -58,22 +62,22 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       categories,
       tags,
       pager,
-      selectedCategory,
+      selectedTag,
     },
   };
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const { contents: category } = await getCategories();
+  const { contents: tag } = await getTags();
   const getPaths = await Promise.all(
-    category.map((category) =>
-      getBlogs({ filters: `category[equals]${category.id}`, limit: 1 }).then(
+    tag.map((tag) =>
+      getBlogs({ filters: `tag[contains]${tag.id}`, limit: 1 }).then(
         ({ totalCount }) => {
           return [...Array(Math.ceil(totalCount / PARPAGE_LIMIT)).keys()].map(
             (num) => ({
               params: {
                 pageNum: (num + 1).toString(),
-                categoryId: category.id,
+                tagId: tag.id,
               },
             })
           );

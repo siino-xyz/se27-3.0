@@ -1,31 +1,35 @@
-import { BlogImage } from "@components";
+import { BlogImage, Meta } from "@components";
 import { MainLayout } from "@layout/MainLayout";
 import { client, getBlogById, getContents } from "@libs";
 import { NextPageWithLayout } from "@pages/_app";
 import { IBlog, ICategory, ITag } from "@types";
-import { GetStaticPaths, GetStaticProps, NextPage } from "next";
+import { GetStaticPaths, GetStaticProps } from "next";
 import { ReactElement } from "react";
 import { sanitizeHtml } from "@libs";
 
 type PostPageProps = {
   blogs: IBlog[];
   sanitizedHtml: string;
-  article: IBlog;
+  blog: IBlog;
   categories: ICategory[];
   tags: ITag[];
 };
 
 const postPage: NextPageWithLayout<PostPageProps> = ({
-  article,
+  blog,
   sanitizedHtml,
   categories,
   tags,
 }) => {
   return (
     <div>
-      <BlogImage src={article.eyeCatch.url} alt={"alt"} />
-      <h1>{article.title}</h1>
-      {/* <PostMeta tags={article.tag} /> */}
+      <BlogImage src={blog.eyeCatch.url} alt={"alt"} />
+      <h1>{blog.title}</h1>
+      <Meta
+        category={blog.category}
+        tags={blog.tag}
+        createdAt={blog.createdAt}
+      />
       <div dangerouslySetInnerHTML={{ __html: sanitizedHtml }} />
     </div>
   );
@@ -38,13 +42,12 @@ postPage.getLayout = function getLayout(postPage: ReactElement) {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { blogs, categories, tags } = await getContents();
   const id: any = params?.id;
-  const article = await getBlogById(id);
-  const sanitizedHtml = sanitizeHtml(article.body);
-
+  const blog = await getBlogById(id);
+  const sanitizedHtml = sanitizeHtml(blog.body);
   return {
     props: {
       blogs,
-      article,
+      blog,
       sanitizedHtml,
       categories,
       tags,

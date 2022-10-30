@@ -7,16 +7,24 @@ type PostMetaProps = {
   createdAt?: string;
 };
 
-export const PostMeta = ({ category, tags, createdAt }: PostMetaProps) => {
+export const Meta = ({ category, tags, createdAt }: PostMetaProps) => {
+  const dateFormat = dayjs(createdAt).locale("ja").format("YYYY/MM/DD");
+
   return (
     <div>
       <ul>
+        <li>
+          <span>Category: {category?.name}</span>
+        </li>
+      </ul>
+      <ul>
         {tags?.map((tag) => (
           <li key={tag.id}>
-            <span>{tag.name}</span>
+            <span>Tag: {tag.name}</span>
           </li>
         ))}
       </ul>
+      <span>Date: {dateFormat}</span>
     </div>
   );
 };
