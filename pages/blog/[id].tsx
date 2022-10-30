@@ -24,12 +24,14 @@ const postPage: NextPageWithLayout<PostPageProps> = ({
   return (
     <div>
       <BlogImage src={blog.eyeCatch.url} alt={"alt"} />
-      <h1>{blog.title}</h1>
-      <Meta
-        category={blog.category}
-        tags={blog.tag}
-        createdAt={blog.createdAt}
-      />
+      <div>
+        <h1>{blog.title}</h1>
+        <Meta
+          category={blog.category}
+          tags={blog.tag}
+          createdAt={blog.createdAt}
+        />
+      </div>
       <div dangerouslySetInnerHTML={{ __html: sanitizedHtml }} />
     </div>
   );

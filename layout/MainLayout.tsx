@@ -2,6 +2,7 @@ import { Footer, Header } from "@components";
 import { ColorModeProvider } from "@context";
 import { ReactNode } from "react";
 import { styles } from "./MainLayout.css";
+import classNames from "classnames";
 
 type MainLayoutProps = {
   children: ReactNode;
@@ -10,7 +11,7 @@ type MainLayoutProps = {
 export const MainLayout = ({ children }: MainLayoutProps) => {
   return (
     <ColorModeProvider>
-      <div className={styles.wrapper}>
+      <div className={classNames(styles.wrapper)}>
         <Header home={false} />
         <main className={styles.main}>{children}</main>
         <Footer />

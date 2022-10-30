@@ -22,11 +22,7 @@ const tagIndex: NextPageWithLayout<TagPageProps> = ({
 }) => {
   return (
     <div>
-      {/* <PostCard blogs={blogs} /> */}
-
-      {blogs.map((blog) => (
-        <span key={blog.id}>{blog.title}</span>
-      ))}
+      <PostCard blogs={blogs} />
     </div>
   );
 };

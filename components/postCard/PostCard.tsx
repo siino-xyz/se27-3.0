@@ -14,9 +14,7 @@ export const PostCard = ({ blogs }: PostCardType) => {
       {blogs.map((blog) => (
         <li key={blog.id}>
           <Link href={`/blog/${blog.id}`}>
-            <a>
-              <BlogImage src={blog.eyeCatch.url} alt={"alt"} />
-            </a>
+            <BlogImage src={blog.eyeCatch.url} alt={"alt"} />
           </Link>
           <h2>{blog.title}</h2>
           <Meta

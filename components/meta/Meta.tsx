@@ -1,5 +1,6 @@
 import { ICategory, ITag } from "@types";
 import dayjs from "dayjs";
+import Link from "next/link";
 
 type PostMetaProps = {
   category?: ICategory;
@@ -12,15 +13,15 @@ export const Meta = ({ category, tags, createdAt }: PostMetaProps) => {
 
   return (
     <div>
-      <ul>
-        <li>
-          <span>Category: {category?.name}</span>
-        </li>
-      </ul>
+      <Link href={`/blog/category/${category?.id}/page/1`}>
+        <span>Category: {category?.name}</span>
+      </Link>
       <ul>
         {tags?.map((tag) => (
           <li key={tag.id}>
-            <span>Tag: {tag.name}</span>
+            <Link href={`/blog/tags/${tag.id}/page/1`}>
+              <span>Tag: {tag.name}</span>
+            </Link>
           </li>
         ))}
       </ul>

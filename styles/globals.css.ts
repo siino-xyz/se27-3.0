@@ -1,7 +1,8 @@
-import { style, globalStyle, globalFontFace } from "@vanilla-extract/css";
+import { globalStyle, globalFontFace } from "@vanilla-extract/css";
 import "styles/preflight.css";
 import { rgb } from "./variables.css";
 import "./theme.css";
+import { Zen_Kaku_Gothic_Antique } from "@next/font/google";
 
 globalStyle("body", {
   fontSize: "16px",

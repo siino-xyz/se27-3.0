@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { blogImageWrapper } from "./BlogImage.css";
+import { styles } from "./BlogImage.css";
 
 type BlogImageProps = {
   src: string;
@@ -8,8 +8,8 @@ type BlogImageProps = {
 
 export const BlogImage = ({ src, alt }: BlogImageProps) => {
   return (
-    <div className={blogImageWrapper}>
-      <Image src={src} layout="fill" objectFit="cover" alt={alt} />
+    <div className={styles.wrapper}>
+      <Image src={src} alt={alt} fill className={styles.content} />
     </div>
   );
 };
