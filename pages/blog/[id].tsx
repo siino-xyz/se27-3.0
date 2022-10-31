@@ -6,7 +6,6 @@ import { IBlog, ICategory, ITag } from "@types";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { ReactElement } from "react";
 import { styles } from "../../styles/pages/blog/article.css";
-import "../../styles/pages/blog/article.css";
 import parse from "html-react-parser";
 
 type PostPageProps = {
@@ -41,6 +40,8 @@ postPage.getLayout = function getLayout(postPage: ReactElement) {
   return <MainLayout>{postPage}</MainLayout>;
 };
 
+export default postPage;
+
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { blogs, categories, tags } = await getContents();
   const id: any = params?.id;
@@ -65,5 +66,3 @@ export const getStaticPaths: GetStaticPaths = async () => {
     fallback: false,
   };
 };
-
-export default postPage;

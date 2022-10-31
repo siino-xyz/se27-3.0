@@ -18,4 +18,5 @@ const document: React.FC<Document> = () => {
     </Html>
   );
 };
+
 export default document;

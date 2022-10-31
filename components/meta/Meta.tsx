@@ -1,6 +1,7 @@
 import { ICategory, ITag } from "@types";
 import dayjs from "dayjs";
 import Link from "next/link";
+import { styles } from "./Meta.css";
 
 type PostMetaProps = {
   category?: ICategory;

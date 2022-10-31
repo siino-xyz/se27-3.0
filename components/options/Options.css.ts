@@ -25,7 +25,7 @@ export const styles = {
   ]),
   heading4: style([
     {
-      color: "gray",
+      color: "purple",
       fontFamily: fonts.heading,
     },
     heading_small,
