@@ -12,7 +12,7 @@ const fontMetrics = {
     unitsPerEm: 2048,
   },
   heading: {
-    capHeight: 1100,
+    capHeight: 1440,
     ascent: 1000,
     descent: -10,
     lineGap: 0,
@@ -92,15 +92,15 @@ export const vars = createGlobalTheme(":root", {
       {
         mobile: {
           fontSize: 26,
-          rows: 9,
+          rows: 12,
         },
         tablet: {
           fontSize: 32,
-          rows: 10,
+          rows: 12,
         },
         desktop: {
           fontSize: 36,
-          rows: 11,
+          rows: 12,
         },
       },
       "heading"
@@ -145,15 +145,15 @@ export const vars = createGlobalTheme(":root", {
       {
         mobile: {
           fontSize: 15,
-          rows: 9,
+          rows: 7,
         },
         tablet: {
           fontSize: 16,
-          rows: 10,
+          rows: 7.5,
         },
         desktop: {
           fontSize: 16,
-          rows: 10,
+          rows: 7.5,
         },
       },
       "initial"
@@ -238,12 +238,12 @@ const heading_small = createTextStyle(vars.heading.h4.mobile, {
   },
 });
 
-// export {
-//   text,
-//   code,
-//   small,
-//   heading_largest,
-//   heading_large,
-//   heading_small,
-//   heading_medium,
-// };
+export {
+  text,
+  code,
+  small,
+  heading_largest,
+  heading_large,
+  heading_small,
+  heading_medium,
+};

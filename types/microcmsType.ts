@@ -14,6 +14,10 @@ export type HeadingTypes = {
   name: string;
 };
 
+export type ElementTypes = {
+  className: string | null;
+};
+
 export type IBlog = {
   title: string;
   category?: ICategory;

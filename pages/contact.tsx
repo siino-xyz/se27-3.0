@@ -1,6 +1,6 @@
-import { GetForm } from "@hooks/getForm";
-import { useState } from "react";
-import { useForm } from "react-hook-form";
+// import { GetForm } from "@hooks/getForm";
+// import { useState } from "react";
+// import { useForm } from "react-hook-form";
 
 type Inputs = {
   name: string;
@@ -10,11 +10,12 @@ type Inputs = {
 };
 
 const contact = () => {
-  const { register, handleSubmit, onSubmit, errors } = GetForm();
+  // const { register, handleSubmit, onSubmit, errors } = GetForm();
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <div>
+    // <form onSubmit={handleSubmit(onSubmit)}>
+    {
+      /* <div>
         <label htmlFor="name">お名前</label>
         <input
           id="name"
@@ -27,8 +28,9 @@ const contact = () => {
           <label htmlFor="名前を入力してください">名前を入力してください</label>
         )}
       </div>
-      <button type="submit">送信</button>
-    </form>
+      <button type="submit">送信</button> */
+    }
+    // </form>
   );
 };
 

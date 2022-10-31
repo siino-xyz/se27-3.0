@@ -1,16 +1,16 @@
-import { BlogImage, Meta } from "@components";
+import { BlogImage, Meta, Options } from "@components";
 import { MainLayout } from "@layout";
 import { client, getBlogById, getContents } from "@libs";
 import { NextPageWithLayout } from "@pages/_app";
 import { IBlog, ICategory, ITag } from "@types";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { ReactElement } from "react";
-import { sanitizeHtml } from "@libs";
-// import { styles } from "../../styles/pages/blog/article.css";
+import { styles } from "../../styles/pages/blog/article.css";
+import "../../styles/pages/blog/article.css";
+import parse from "html-react-parser";
 
 type PostPageProps = {
   blogs: IBlog[];
-  sanitizedHtml: string;
   blog: IBlog;
   categories: ICategory[];
   tags: ITag[];
@@ -18,7 +18,6 @@ type PostPageProps = {
 
 const postPage: NextPageWithLayout<PostPageProps> = ({
   blog,
-  sanitizedHtml,
   categories,
   tags,
 }) => {
@@ -26,14 +25,14 @@ const postPage: NextPageWithLayout<PostPageProps> = ({
     <div>
       <BlogImage src={blog.eyeCatch.url} alt={"alt"} />
       <div>
-        <h1>{blog.title}</h1>
+        <h1 className={styles.blogTitle}>{blog.title}</h1>
         <Meta
           category={blog.category}
           tags={blog.tag}
           createdAt={blog.createdAt}
         />
       </div>
-      <div dangerouslySetInnerHTML={{ __html: sanitizedHtml }} />
+      <div>{parse(blog.body, Options)}</div>
     </div>
   );
 };
@@ -46,12 +45,12 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { blogs, categories, tags } = await getContents();
   const id: any = params?.id;
   const blog = await getBlogById(id);
-  const sanitizedHtml = sanitizeHtml(blog.body);
+  // const sanitizedHtml = sanitizeHtml(blog.body);
+
   return {
     props: {
       blogs,
       blog,
-      sanitizedHtml,
       categories,
       tags,
     },

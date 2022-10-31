@@ -23,6 +23,7 @@
     "classnames": "^2.3.2",
     "dayjs": "^1.11.6",
     "gray-matter": "^4.0.3",
+    "html-react-parser": "^3.0.4",
     "install": "^0.13.0",
     "isomorphic-dompurify": "^0.23.0",
     "jsdom": "^20.0.1",
