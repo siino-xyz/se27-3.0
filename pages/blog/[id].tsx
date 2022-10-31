@@ -1,11 +1,12 @@
 import { BlogImage, Meta } from "@components";
-import { MainLayout } from "@layout/MainLayout";
+import { MainLayout } from "@layout";
 import { client, getBlogById, getContents } from "@libs";
 import { NextPageWithLayout } from "@pages/_app";
 import { IBlog, ICategory, ITag } from "@types";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { ReactElement } from "react";
 import { sanitizeHtml } from "@libs";
+// import { styles } from "../../styles/pages/blog/article.css";
 
 type PostPageProps = {
   blogs: IBlog[];

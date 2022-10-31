@@ -8,7 +8,7 @@ const home: NextPage = () => {
     <ColorModeProvider>
       <Header home={true} />
       <p className={text}>
-        このフォントは、全角ゴシックアンティークというやつで、GoogleFontsから取ってきました
+        このフf全角ffzzシックアンティークというやつで、GoogleFontsから取ってきました
       </p>
     </ColorModeProvider>
   );

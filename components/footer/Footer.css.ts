@@ -6,6 +6,6 @@ export const footer = style([
     width: "100%",
     maxWidth: "100%",
     height: "50px",
-    background: `rgb(${rgb.brand})`,
+    background: `rgb(${rgb.error})`,
   },
 ]);

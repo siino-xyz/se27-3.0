@@ -1,16 +1,24 @@
 import { createGlobalTheme, createThemeContract } from "@vanilla-extract/css";
 
 export const breakpoints = {
-  tablet: "(min-width: 768px)",
-  desktop: "(min-width: 1024px)",
-  motionSafe: "(prefers-reduced-motion: no-preference)",
-  retina: "(-webkit-min-device-pixel-ratio: 2),(min-resolution: 192dpi)",
+  mobile: 0,
+  tablet: 768,
+  desktop: 1024,
 };
+export type Breakpoint = keyof typeof breakpoints;
 
-const grid = 4;
+export const grid: number = 4;
 const px = (value: string | number) => `${value}px`;
 
 export const globalVars = createGlobalTheme(":root", {
+  fonts: {
+    initial:
+      'Zen Kaku Gothic Antique, "Helvetica Neue",Arial,"Hiragino Kaku Gothic ProN","Hiragino Sans",Meiryo,sans-serif',
+    heading:
+      '"MOBO",Arial,"Hiragino Kaku Gothic ProN","Hiragino Sans",Meiryo,sans-serif',
+    emblem:
+      '"kiChoJIS",Arial,"Hiragino Kaku Gothic ProN","Hiragino Sans",Meiryo,sans-serif',
+  },
   rgb: {
     "text-black": "27 25 25",
     "text-white": "249 249 249",
@@ -52,13 +60,7 @@ export const globalVars = createGlobalTheme(":root", {
     xxlarge: px(12 * grid),
     xxxlarge: px(24 * grid),
   },
-  fonts: {
-    initial:
-      'Zen Kaku Gothic Antique, "Helvetica Neue",Arial,"Hiragino Kaku Gothic ProN","Hiragino Sans",Meiryo,sans-serif',
-    kiChoJIS:
-      '"kiChoJIS",Arial,"Hiragino Kaku Gothic ProN","Hiragino Sans",Meiryo,sans-serif',
-    MOBO: '"MOBO",Arial,"Hiragino Kaku Gothic ProN","Hiragino Sans",Meiryo,sans-serif',
-  },
+
   zIndex: {
     auto: "auto",
     "-1": "-1",
@@ -92,9 +94,9 @@ export const themeVars = createThemeContract({
 
 export const rgb = { ...globalVars.rgb, ...themeVars.rgb };
 export const {
+  fonts,
   space,
   contentWidth,
-  fonts,
   zIndex,
   borderRadius,
   borderWidths,

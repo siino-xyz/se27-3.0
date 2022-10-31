@@ -1,5 +1,5 @@
 import { PostCard } from "@components";
-import { MainLayout } from "@layout/MainLayout";
+import { MainLayout } from "@layout/mainLayout";
 import { getBlogs, getContents, getTags, PARPAGE_LIMIT } from "@libs";
 import { NextPageWithLayout } from "@pages/_app";
 import { IBlog, ICategory, ITag } from "@types";

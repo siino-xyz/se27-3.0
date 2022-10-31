@@ -1,12 +1,11 @@
 import React, { ReactElement } from "react";
 import { GetStaticProps, GetStaticPropsContext, NextPage } from "next";
 import { getContents } from "@libs";
-import { IBlog, ICategory, ITag } from "@types";
+import { IBlog } from "@types";
 import { MIN_LIMIT } from "@libs";
-import { BlogImage, Meta, PostCard } from "@components";
-import Link from "next/link";
+import { PostCard } from "@components";
 import { NextPageWithLayout } from "@pages/_app";
-import { MainLayout } from "@layout/MainLayout";
+import { MainLayout } from "@layout/mainLayout";
 
 type BlogIndexPageProps = {
   blogs: IBlog[];

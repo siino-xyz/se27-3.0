@@ -1,4 +1,4 @@
-import { globalFontFace, style } from "@vanilla-extract/css";
+import { style } from "@vanilla-extract/css";
 import { fonts } from "@styles/variables.css";
 import { rgb } from "@styles/variables.css";
 export const text = style([

@@ -1,6 +1,5 @@
 import { globalStyle } from "@vanilla-extract/css";
-import { fonts } from "styles/variables.css";
-
+import { fonts } from "./variables.css";
 /*
  *  Tailwind CSS Preflight
  */
@@ -18,7 +17,7 @@ globalStyle("*, ::before, ::after", {
 });
 
 /*
-1. Use a consistent sensible line-height in all browsers.
+1. Use aa consistent sensible line-height in all browsers.
 2. Prevent adjustments of font size after orientation changes in iOS.
 3. Use a more readable tab size.
 4. Use the user's configured `sans` font-family by default.

@@ -10,7 +10,6 @@ import { breakpoints } from "./variables.css";
 import {
   space,
   contentWidth,
-  fonts,
   zIndex,
   borderRadius,
   borderWidths,
@@ -36,8 +35,8 @@ const margins = {
 const responsiveProperties = defineProperties({
   conditions: {
     mobile: {},
-    tablet: { "@media": `screen and ${breakpoints.tablet}` },
-    desktop: { "@media": `screen and ${breakpoints.desktop}` },
+    tablet: { "@media": `screen and (min-width: ${breakpoints.tablet}px)` },
+    desktop: { "@media": `screen and (min-width: ${breakpoints.desktop}px)` },
   },
   defaultCondition: "mobile",
   responsiveArray: ["mobile", "tablet", "desktop"],

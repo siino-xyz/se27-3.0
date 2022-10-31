@@ -9,11 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@capsizecss/metrics": "^0.3.0",
     "@capsizecss/vanilla-extract": "^1.0.0",
     "@mdx-js/loader": "^2.1.5",
     "@mdx-js/react": "^2.1.5",
     "@next/font": "^13.0.0",
-    "@next/mdx": "^12.3.1",
     "@radix-ui/react-toggle": "^1.0.1",
     "@types/jsdom": "^20.0.0",
     "@vanilla-extract/css": "^1.9.1",
@@ -23,6 +23,7 @@
     "classnames": "^2.3.2",
     "dayjs": "^1.11.6",
     "gray-matter": "^4.0.3",
+    "install": "^0.13.0",
     "isomorphic-dompurify": "^0.23.0",
     "jsdom": "^20.0.1",
     "microcms-js-sdk": "^2.2.1",

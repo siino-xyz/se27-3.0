@@ -17,8 +17,8 @@ export const Meta = ({ category, tags, createdAt }: PostMetaProps) => {
         <span>Category: {category?.name}</span>
       </Link>
       <ul>
-        {tags?.map((tag) => (
-          <li key={tag.id}>
+        {tags?.map((tag, index) => (
+          <li key={index}>
             <Link href={`/blog/tags/${tag.id}/page/1`}>
               <span>Tag: {tag.name}</span>
             </Link>
