@@ -13,6 +13,10 @@ import {
   zIndex,
   borderRadius,
   borderWidths,
+  fontSizes,
+  fontWeights,
+  lineHeights,
+  letterSpacings,
 } from "./variables.css";
 
 export type Space = keyof typeof space;
@@ -56,6 +60,11 @@ const responsiveProperties = defineProperties({
     marginRight: margins,
     maxWidth: contentWidth,
     gap: space,
+    borderRadius: borderRadius,
+    borderWidth: borderWidths,
+    fontSize: fontSizes,
+    lineHeights: lineHeights,
+    letterSpacings: letterSpacings,
   },
   shorthands: {
     padding: ["paddingTop", "paddingBottom", "paddingLeft", "paddingRight"],
@@ -95,13 +104,14 @@ const unresponsiveProperties = defineProperties({
     bottom: [0],
     left: [0],
     right: [0],
-    zIndex: [-1, 0, 1, 2],
+    zIndex: zIndex,
     textAlign: ["left", "center", "right"],
     listStyle: ["inside", "square", "none", "disc", "circle", "cjk-decimal"],
     listStyleType: ["none"],
     textDecoration: ["none"],
     borderStyle: ["solid", "dashed", "none"],
     cursor: ["pointer"],
+    fontWeight: fontWeights,
   },
   shorthands: {
     inset: ["top", "bottom", "left", "right"],
