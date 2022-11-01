@@ -7,15 +7,22 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import { ReactElement } from "react";
 import parse from "html-react-parser";
 import { blogPageStyles } from "@styles";
+const cheerio = require("cheerio");
+import hljs from "highlight.js";
+import "highlight.js/styles/base16/black-metal.css";
 
 type PostPageProps = {
   blogs: IBlog[];
   blog: IBlog;
   categories: ICategory[];
   tags: ITag[];
+  highlightedBody: string;
 };
 
-const postPage: NextPageWithLayout<PostPageProps> = ({ blog }) => {
+const postPage: NextPageWithLayout<PostPageProps> = ({
+  blog,
+  highlightedBody,
+}) => {
   return (
     <div className={blogPageStyles.container}>
       <BlogImage src={blog.eyeCatch.url} alt={"alt"} />
@@ -27,8 +34,10 @@ const postPage: NextPageWithLayout<PostPageProps> = ({ blog }) => {
           createdAt={blog.createdAt}
         />
       </div>
-      <div className={blogPageStyles.textcontent}>
-        {parse(blog.body, Options)}
+      <div className={blogPageStyles.contentContainer}>
+        <div className={blogPageStyles.textcontent}>
+          {parse(highlightedBody, Options)}
+        </div>
       </div>
     </div>
   );
@@ -44,6 +53,14 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { blogs, categories, tags } = await getContents();
   const id: any = params?.id;
   const blog = await getBlogById(id);
+  const $ = cheerio.load(blog.body);
+
+  $("pre code").each((_: Number, elm: any) => {
+    const result = hljs.highlightAuto($(elm).text());
+    $(elm).html(result.value);
+    $(elm).addClass("hljs");
+    $(elm).addClass(blogPageStyles.codeBlock);
+  });
 
   return {
     props: {
@@ -51,6 +68,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       blog,
       categories,
       tags,
+      highlightedBody: $("body").html(),
     },
   };
 };

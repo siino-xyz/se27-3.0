@@ -9,7 +9,6 @@ export const blogPageStyles = {
     width: "full",
   }),
   title: sprinkles({
-    marginTop: "large",
     marginBottom: "large",
     fontFamily: "heading",
     fontSize: { mobile: "2xl", tablet: "3xl", desktop: "4xl" },
@@ -18,7 +17,17 @@ export const blogPageStyles = {
   textcontent: sprinkles({
     paddingTop: "xlarge",
     paddingBottom: "medium",
+    width: "full",
+  }),
+  contentContainer: sprinkles({
     paddingX: { mobile: "small", tablet: "large", desktop: "xlarge" },
   }),
-  header: sprinkles({ paddingX: "xsmall" }),
+  codeBlock: sprinkles({
+    borderRadius: "sm",
+    marginY: { mobile: "large", tablet: "large", desktop: "large" },
+  }),
+  header: sprinkles({
+    paddingX: "xsmall",
+    marginTop: { mobile: "small", tablet: "small", desktop: "large" },
+  }),
 };

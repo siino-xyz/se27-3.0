@@ -4,13 +4,13 @@ import {
   Element,
   HTMLReactParserOptions,
 } from "html-react-parser";
+import Image from "next/image";
 import { styles } from "./Options.css";
 
 export const Options: HTMLReactParserOptions = {
   replace: (domNode) => {
     if (domNode instanceof Element && domNode.type == "tag") {
       const props = attributesToProps(domNode.attribs);
-
       if (domNode.attribs && domNode.name === "h2") {
         return (
           <h2 className={styles.heading2} {...props}>
