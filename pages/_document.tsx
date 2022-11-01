@@ -1,9 +1,10 @@
+import { light } from "@styles";
 import Document, { Html, Head, Main, NextScript } from "next/document";
 import React from "react";
 
 const document: React.FC<Document> = () => {
   return (
-    <Html>
+    <Html className="light">
       <Head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link

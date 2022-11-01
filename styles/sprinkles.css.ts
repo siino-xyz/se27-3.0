@@ -17,6 +17,7 @@ import {
   fontWeights,
   lineHeights,
   letterSpacings,
+  fonts,
 } from "./variables.css";
 
 export type Space = keyof typeof space;
@@ -59,12 +60,13 @@ const responsiveProperties = defineProperties({
     marginLeft: margins,
     marginRight: margins,
     maxWidth: contentWidth,
+    width: contentWidth,
     gap: space,
     borderRadius: borderRadius,
     borderWidth: borderWidths,
     fontSize: fontSizes,
-    lineHeights: lineHeights,
-    letterSpacings: letterSpacings,
+    lineHeight: lineHeights,
+    letterSpacing: letterSpacings,
   },
   shorthands: {
     padding: ["paddingTop", "paddingBottom", "paddingLeft", "paddingRight"],
@@ -112,6 +114,7 @@ const unresponsiveProperties = defineProperties({
     borderStyle: ["solid", "dashed", "none"],
     cursor: ["pointer"],
     fontWeight: fontWeights,
+    fontFamily: fonts,
   },
   shorthands: {
     inset: ["top", "bottom", "left", "right"],

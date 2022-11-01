@@ -6,3 +6,4 @@ export * from "./meta/Meta";
 export * from "./svgAssets/SvgAssets";
 export * from "./postCard/PostCard";
 export * from "./options/Options";
+export * from "./tag/Tag";

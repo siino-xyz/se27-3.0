@@ -11,6 +11,7 @@ export const styles = {
     }),
     {
       maxWidth: "100%",
+      width: "100%",
       aspectRatio: "3/1",
     },
   ]),

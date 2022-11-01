@@ -1,3 +1,4 @@
+import { Tag } from "@components/tag/Tag";
 import { ICategory, ITag } from "@types";
 import dayjs from "dayjs";
 import Link from "next/link";
@@ -13,20 +14,30 @@ export const Meta = ({ category, tags, createdAt }: PostMetaProps) => {
   const dateFormat = dayjs(createdAt).locale("ja").format("YYYY/MM/DD");
 
   return (
-    <div>
-      <Link href={`/blog/category/${category?.id}/page/1`}>
-        <span>Category: {category?.name}</span>
-      </Link>
-      <ul>
-        {tags?.map((tag, index) => (
-          <li key={index}>
-            <Link href={`/blog/tags/${tag.id}/page/1`}>
-              <span>Tag: {tag.name}</span>
-            </Link>
-          </li>
-        ))}
-      </ul>
-      <span>Date: {dateFormat}</span>
+    <div className={styles.container}>
+      <div className={styles.contentWrapper}>
+        <span className={styles.label}>Category:</span>
+        <Link href={`/blog/category/${category?.id}/page/1`}>
+          <Tag bg="category" colour="reverse" content={category?.name} />
+        </Link>
+      </div>
+
+      <div className={styles.contentWrapper}>
+        <span className={styles.label}>Tags:</span>
+        <ul className={styles.tags}>
+          {tags?.map((tag, index) => (
+            <li key={index}>
+              <Link href={`/blog/tags/${tag.id}/page/1`}>
+                <Tag bg="tags" content={tag?.name} />
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div className={styles.contentWrapper}>
+        <span className={styles.label}>Posted:</span>
+        <span className={styles.date}>{dateFormat}</span>
+      </div>
     </div>
   );
 };

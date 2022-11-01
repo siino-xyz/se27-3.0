@@ -79,6 +79,7 @@ export const globalVars = createGlobalTheme(":root", {
   grid: px(grid),
   space: {
     none: "0",
+    smallest: px(2),
     xsmall: px(1 * grid),
     small: px(2 * grid),
     medium: px(3 * grid),

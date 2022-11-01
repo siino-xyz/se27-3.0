@@ -5,8 +5,8 @@ import { NextPageWithLayout } from "@pages/_app";
 import { IBlog, ICategory, ITag } from "@types";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { ReactElement } from "react";
-import { styles } from "../../styles/pages/blog/article.css";
 import parse from "html-react-parser";
+import { blogPageStyles } from "@styles";
 
 type PostPageProps = {
   blogs: IBlog[];
@@ -15,29 +15,27 @@ type PostPageProps = {
   tags: ITag[];
 };
 
-const postPage: NextPageWithLayout<PostPageProps> = ({
-  blog,
-  categories,
-  tags,
-}) => {
+const postPage: NextPageWithLayout<PostPageProps> = ({ blog }) => {
   return (
-    <div>
+    <div className={blogPageStyles.container}>
       <BlogImage src={blog.eyeCatch.url} alt={"alt"} />
-      <div>
-        <h1 className={styles.blogTitle}>{blog.title}</h1>
+      <div className={blogPageStyles.header}>
+        <h1 className={blogPageStyles.title}>{blog.title}</h1>
         <Meta
           category={blog.category}
           tags={blog.tag}
           createdAt={blog.createdAt}
         />
       </div>
-      <div>{parse(blog.body, Options)}</div>
+      <div className={blogPageStyles.textcontent}>
+        {parse(blog.body, Options)}
+      </div>
     </div>
   );
 };
 
 postPage.getLayout = function getLayout(postPage: ReactElement) {
-  return <MainLayout>{postPage}</MainLayout>;
+  return <MainLayout maxWidth="blog">{postPage}</MainLayout>;
 };
 
 export default postPage;
@@ -46,7 +44,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { blogs, categories, tags } = await getContents();
   const id: any = params?.id;
   const blog = await getBlogById(id);
-  // const sanitizedHtml = sanitizeHtml(blog.body);
 
   return {
     props: {
