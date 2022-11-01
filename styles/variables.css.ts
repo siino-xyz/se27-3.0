@@ -70,11 +70,11 @@ export const globalVars = createGlobalTheme(":root", {
     widest: "0.1em",
   },
   rgb: {
-    "text-black": "27 25 25",
-    "text-white": "249 249 249",
-    "text-gray-1": "211 207 207",
-    "text-gray-2": "175 171 171",
-    "text-gray-3": "124 123 123",
+    gray1: "211 207 207",
+    gray2: "175 171 171",
+    gray3: "124 123 123",
+    black: "27 25 25",
+    white: "238 238 238",
   },
   grid: px(grid),
   space: {
@@ -148,8 +148,6 @@ export const themeVars = createThemeContract({
     fg1: null,
     fg2: null,
     fg3: null,
-    fw: null,
-    fb: null,
   },
 });
 

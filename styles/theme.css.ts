@@ -3,26 +3,24 @@ import { themeVars, rgb } from "./variables.css";
 
 createGlobalTheme(".light", themeVars, {
   rgb: {
-    bg: "249 249 249",
-    brand: "27 25 25",
+    bg: rgb["white"],
+    brand: rgb["black"],
     glass: rgb.brand,
     primary: "14 154 53",
     secoundary: "19 170 190",
     thirdly: "248 197 18",
     error: "224 55 18",
     //grayScale
-    fg1: rgb["text-gray-1"],
-    fg2: rgb["text-gray-2"],
-    fg3: rgb["text-gray-3"],
-    fw: rgb["fw"],
-    fb: rgb["fb"],
+    fg1: rgb["gray1"],
+    fg2: rgb["gray2"],
+    fg3: rgb["gray3"],
   },
 });
 
 createGlobalTheme(".dark", themeVars, {
   rgb: {
-    bg: "27 25 25",
-    brand: "249 249 249",
+    bg: rgb["black"],
+    brand: rgb["white"],
     glass: rgb.brand,
     primary: "26 217 79",
     secoundary: "69 178 225",
@@ -30,10 +28,8 @@ createGlobalTheme(".dark", themeVars, {
     error: "225 55 12",
 
     //grayScale
-    fg1: rgb["text-gray-1"],
-    fg2: rgb["text-gray-2"],
-    fg3: rgb["text-gray-3"],
-    fw: rgb["fw"],
-    fb: rgb["fb"],
+    fg1: rgb["gray1"],
+    fg2: rgb["gray2"],
+    fg3: rgb["gray3"],
   },
 });

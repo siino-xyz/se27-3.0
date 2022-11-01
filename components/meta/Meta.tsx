@@ -18,7 +18,7 @@ export const Meta = ({ category, tags, createdAt }: PostMetaProps) => {
       <div className={styles.contentWrapper}>
         <span className={styles.label}>Category:</span>
         <Link href={`/blog/category/${category?.id}/page/1`}>
-          <Tag bg="category" colour="reverse" content={category?.name} />
+          <Tag background="initial" colour="reverse" content={category?.name} />
         </Link>
       </div>
 
@@ -28,7 +28,7 @@ export const Meta = ({ category, tags, createdAt }: PostMetaProps) => {
           {tags?.map((tag, index) => (
             <li key={index}>
               <Link href={`/blog/tags/${tag.id}/page/1`}>
-                <Tag bg="tags" content={tag?.name} />
+                <Tag background="borderd" content={tag?.name} />
               </Link>
             </li>
           ))}

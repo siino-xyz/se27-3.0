@@ -4,9 +4,10 @@ export const styles = {
   paragraph: sprinkles({
     fontFamily: "initial",
     fontSize: { mobile: "sm", tablet: "base", desktop: "base" },
-    lineHeight: [7],
-    marginBottom: "large",
+    lineHeight: [8],
+    marginBottom: "xxlarge",
     paddingX: "xsmall",
+    letterSpacing: "wide",
   }),
   heading2: sprinkles({
     marginTop: "small",

@@ -6,11 +6,11 @@ type TagProps = {
   content?: string;
 } & TagVariants;
 
-export const Tag = ({ content, bg, colour }: TagProps) => {
+export const Tag = ({ content, background, colour }: TagProps) => {
   return (
     <span
       className={tag({
-        bg,
+        background,
         colour,
       })}
     >

@@ -9,14 +9,14 @@ export const blogPageStyles = {
     width: "full",
   }),
   title: sprinkles({
-    marginTop: "small",
-    marginBottom: "medium",
+    marginTop: "large",
+    marginBottom: "large",
     fontFamily: "heading",
-    fontSize: { mobile: "2xl", tablet: "3xl", desktop: "3xl" },
+    fontSize: { mobile: "2xl", tablet: "3xl", desktop: "4xl" },
     lineHeight: [7],
   }),
   textcontent: sprinkles({
-    paddingTop: "large",
+    paddingTop: "xlarge",
     paddingBottom: "medium",
     paddingX: { mobile: "small", tablet: "large", desktop: "xlarge" },
   }),

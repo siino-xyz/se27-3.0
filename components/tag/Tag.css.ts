@@ -4,8 +4,8 @@ import { recipe, RecipeVariants } from "@vanilla-extract/recipes";
 export const tag = recipe({
   base: [
     sprinkles({
-      paddingX: "small",
-      paddingY: "smallest",
+      paddingX: "xsmall",
+      paddingBottom: "smallest",
       borderRadius: "xs",
       fontWeight: "bold",
       fontSize: "sm",
@@ -15,9 +15,9 @@ export const tag = recipe({
   ],
 
   variants: {
-    bg: {
-      category: { background: `rgb(${rgb.brand})` },
-      tags: { background: `rgb(${rgb.fg2})` },
+    background: {
+      initial: { background: `rgb(${rgb.brand})` },
+      borderd: { border: `1px solid rgb(${rgb.brand})` },
     },
     colour: {
       initial: { color: `rgb(${rgb.brand})` },
@@ -25,7 +25,7 @@ export const tag = recipe({
     },
   },
   defaultVariants: {
-    bg: "category",
+    background: "initial",
     colour: "initial",
   },
 });
