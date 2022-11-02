@@ -30,11 +30,4 @@ export const blogPageStyles = {
     paddingX: "xsmall",
     marginTop: { mobile: "small", tablet: "small", desktop: "large" },
   }),
-  linkIcons: sprinkles({
-    display: "flex",
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center",
-    gap: "large",
-  }),
 };

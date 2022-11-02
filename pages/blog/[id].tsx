@@ -1,4 +1,4 @@
-import { BlogImage, Meta, Options } from "@components";
+import { BlogImage, Meta, Options, ShareIcons } from "@components";
 import { MainLayout } from "@layout";
 import { client, getBlogById, getContents } from "@libs";
 import { NextPageWithLayout } from "@pages/_app";
@@ -11,16 +11,6 @@ const cheerio = require("cheerio");
 import hljs from "highlight.js";
 import "highlight.js/styles/base16/black-metal.css";
 import classNames from "classnames";
-import {
-  TwitterShareButton,
-  TwitterIcon,
-  FacebookShareButton,
-  FacebookIcon,
-  HatenaShareButton,
-  HatenaIcon,
-  PinterestShareButton,
-  PinterestIcon,
-} from "react-share";
 
 type PostPageProps = {
   blogs: IBlog[];
@@ -34,8 +24,8 @@ const postPage: NextPageWithLayout<PostPageProps> = ({
   blog,
   highlightedBody,
 }) => {
-  const linkUrl = `http://localhost:3000/blog/${blog.id}`;
-  const linkTitle = `${blog.title}`;
+  const shareUrl = `http://localhost:3000/blog/${blog.id}`;
+  const shareTitle = `${blog.title}`;
 
   return (
     <div
@@ -60,19 +50,7 @@ const postPage: NextPageWithLayout<PostPageProps> = ({
         <div className={blogPageStyles.textcontent}>
           {parse(highlightedBody, Options)}
         </div>
-        <div className={blogPageStyles.linkIcons}>
-          <TwitterShareButton title={linkTitle} url={linkUrl}>
-            <TwitterIcon size={32} round={true} />
-          </TwitterShareButton>
-
-          <FacebookShareButton title={linkTitle} url={linkUrl}>
-            <FacebookIcon size={32} round={true} />
-          </FacebookShareButton>
-
-          <HatenaShareButton title={linkTitle} url={linkUrl}>
-            <HatenaIcon size={32} round={true} />
-          </HatenaShareButton>
-        </div>
+        <ShareIcons url={shareUrl} title={shareTitle} />
       </div>
     </div>
   );

@@ -7,3 +7,5 @@ export * from "./svgAssets/SvgAssets";
 export * from "./postCard/PostCard";
 export * from "./option/Options";
 export * from "./termlink/TermLink";
+export * from "./shareIcons/ShareIcons";
+export * from "./heading/Heading";
