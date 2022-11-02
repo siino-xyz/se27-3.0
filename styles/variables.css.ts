@@ -115,12 +115,12 @@ export const globalVars = createGlobalTheme(":root", {
   zIndex: {
     auto: "auto",
     "-1": "-1",
-    0: "0",
-    1: "1",
-    2: "2",
-    3: "3",
-    4: "4",
-    5: "5",
+    "0": "0",
+    "1": "1",
+    "2": "2",
+    "3": "3",
+    "4": "4",
+    "5": "5",
   },
   borderRadius: {
     none: "0",
@@ -140,7 +140,7 @@ export const themeVars = createThemeContract({
   rgb: {
     bg: null,
     brand: null,
-    glass: null,
+    glassBg: null,
     error: null,
     primary: null,
     secoundary: null,

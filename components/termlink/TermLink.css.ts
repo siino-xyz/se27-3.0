@@ -10,13 +10,15 @@ export const tag = recipe({
       fontWeight: "bold",
       fontSize: "sm",
       lineHeight: "none",
-      letterSpacing: "wide",
+      letterSpacing: "normal",
     }),
   ],
 
   variants: {
     background: {
       initial: { background: `rgb(${rgb.brand})` },
+      primary: { background: `rgb(${rgb.primary})` },
+      secoudary: { background: `rgb(${rgb.secoundary})` },
       borderd: { border: `1px solid rgb(${rgb.brand})` },
     },
     colour: {

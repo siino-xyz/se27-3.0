@@ -1,43 +1,96 @@
-import { Tag } from "@components/tag/Tag";
+import { TermLink } from "@components/termlink/TermLink";
 import { ICategory, ITag } from "@types";
+import classNames from "classnames";
 import dayjs from "dayjs";
-import Link from "next/link";
 import { styles } from "./Meta.css";
 
 type PostMetaProps = {
   category?: ICategory;
   tags?: ITag[];
   createdAt?: string;
+  isDetail?: boolean;
 };
 
-export const Meta = ({ category, tags, createdAt }: PostMetaProps) => {
-  const dateFormat = dayjs(createdAt).locale("ja").format("YYYY/MM/DD");
-
+const Tags = ({ tags }: PostMetaProps) => {
   return (
-    <div className={styles.container}>
-      <div className={styles.contentWrapper}>
-        <span className={styles.label}>Category:</span>
-        <Link href={`/blog/category/${category?.id}/page/1`}>
-          <Tag background="initial" colour="reverse" content={category?.name} />
-        </Link>
-      </div>
-
-      <div className={styles.contentWrapper}>
-        <span className={styles.label}>Tags:</span>
+    <>
+      {tags == undefined ? (
+        <span className={styles.errortext}>タグ未指定</span>
+      ) : (
         <ul className={styles.tags}>
           {tags?.map((tag, index) => (
-            <li key={index}>
-              <Link href={`/blog/tags/${tag.id}/page/1`}>
-                <Tag background="borderd" content={tag?.name} />
-              </Link>
+            <li key={tag.id}>
+              <TermLink
+                hashTag={true}
+                href={`/blog/tags/${tag.id}/page/1`}
+                background="primary"
+                colour='reverse'
+                content={tag?.name}
+              />
             </li>
           ))}
         </ul>
-      </div>
-      <div className={styles.contentWrapper}>
-        <span className={styles.label}>Posted:</span>
-        <span className={styles.date}>{dateFormat}</span>
-      </div>
-    </div>
+      )}
+    </>
+  );
+};
+
+const Category = ({ category }: PostMetaProps) => {
+  return (
+    <>
+      {category == undefined ? (
+        <span className={styles.errortext}>{"[カテゴリ未指定]"}</span>
+      ) : (
+        <TermLink
+          hashTag={false}
+          href={`/blog/category/${category?.id}/page/1`}
+          background="secoudary"
+          colour="reverse"
+          content={category?.name}
+        />
+      )}
+    </>
+  );
+};
+
+export const Meta = ({
+  createdAt,
+  isDetail,
+  category,
+  tags,
+}: PostMetaProps) => {
+  const dateFormat = dayjs(createdAt).locale("ja").format("YYYY/MM/DD");
+
+  return (
+    <>
+      {isDetail ? (
+        <div className={styles.container}>
+          <div className={styles.contentWrapper}>
+            <span className={styles.label}>Category:</span>
+            <Category category={category} />
+          </div>
+          <div className={styles.contentWrapper}>
+            <span className={styles.label}>Tags:</span>
+            <Tags tags={tags} />
+          </div>
+          <div className={styles.contentWrapper}>
+            <span className={styles.label}>Posted on:</span>
+            <span className={styles.date}>{dateFormat}</span>
+          </div>
+        </div>
+      ) : (
+        <div className={styles.withcard}>
+          <div className={styles.terms}>
+            <Category category={category} />
+            <Tags tags={tags} />
+          </div>
+          <div className={styles.datewrapper}>
+            <span className={classNames(styles.date, styles.dateforCard)}>
+              {dateFormat}
+            </span>
+          </div>
+        </div>
+      )}
+    </>
   );
 };

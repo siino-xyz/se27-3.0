@@ -10,14 +10,17 @@ type PostCardType = {
 
 export const PostCard = ({ blogs }: PostCardType) => {
   return (
-    <ul>
+    <ul className={styles.cards}>
       {blogs.map((blog) => (
-        <li key={blog.id}>
-          <Link href={`/blog/${blog.id}`}>
-            <BlogImage src={blog.eyeCatch.url} alt={"alt"} />
+        <li className={styles.card} key={blog.id}>
+          <Link href={`/blog/${blog.id}`} className={styles.imageWrapper}>
+            <BlogImage radius="none" src={blog.eyeCatch.url} alt={"alt"} />
           </Link>
-          <h2>{blog.title}</h2>
+          <Link href={`/blog/${blog.id}`}>
+            <h2 className={styles.title}>{blog.title}</h2>
+          </Link>
           <Meta
+            isDetail={false}
             category={blog.category}
             tags={blog.tag}
             createdAt={blog.createdAt}

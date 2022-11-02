@@ -4,3 +4,4 @@ export * from "./variables.css";
 export * from "./theme.css";
 export * from "./sprinkles.css";
 export * from "./pages/blog/blogPage.css";
+export * from "./recipe/contentMaxWidth.css";

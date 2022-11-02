@@ -6,10 +6,21 @@ import { IBlog, ICategory, ITag } from "@types";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { ReactElement } from "react";
 import parse from "html-react-parser";
-import { blogPageStyles } from "@styles";
+import { blogPageStyles, contentMaxWidth } from "@styles";
 const cheerio = require("cheerio");
 import hljs from "highlight.js";
 import "highlight.js/styles/base16/black-metal.css";
+import classNames from "classnames";
+import {
+  TwitterShareButton,
+  TwitterIcon,
+  FacebookShareButton,
+  FacebookIcon,
+  HatenaShareButton,
+  HatenaIcon,
+  PinterestShareButton,
+  PinterestIcon,
+} from "react-share";
 
 type PostPageProps = {
   blogs: IBlog[];
@@ -23,12 +34,23 @@ const postPage: NextPageWithLayout<PostPageProps> = ({
   blog,
   highlightedBody,
 }) => {
+  const linkUrl = `http://localhost:3000/blog/${blog.id}`;
+  const linkTitle = `${blog.title}`;
+
   return (
-    <div className={blogPageStyles.container}>
+    <div
+      className={classNames(
+        blogPageStyles.container,
+        contentMaxWidth({
+          maxWidth: "blog",
+        })
+      )}
+    >
       <BlogImage src={blog.eyeCatch.url} alt={"alt"} />
       <div className={blogPageStyles.header}>
         <h1 className={blogPageStyles.title}>{blog.title}</h1>
         <Meta
+          isDetail={true}
           category={blog.category}
           tags={blog.tag}
           createdAt={blog.createdAt}
@@ -38,13 +60,26 @@ const postPage: NextPageWithLayout<PostPageProps> = ({
         <div className={blogPageStyles.textcontent}>
           {parse(highlightedBody, Options)}
         </div>
+        <div className={blogPageStyles.linkIcons}>
+          <TwitterShareButton title={linkTitle} url={linkUrl}>
+            <TwitterIcon size={32} round={true} />
+          </TwitterShareButton>
+
+          <FacebookShareButton title={linkTitle} url={linkUrl}>
+            <FacebookIcon size={32} round={true} />
+          </FacebookShareButton>
+
+          <HatenaShareButton title={linkTitle} url={linkUrl}>
+            <HatenaIcon size={32} round={true} />
+          </HatenaShareButton>
+        </div>
       </div>
     </div>
   );
 };
 
 postPage.getLayout = function getLayout(postPage: ReactElement) {
-  return <MainLayout maxWidth="blog">{postPage}</MainLayout>;
+  return <MainLayout>{postPage}</MainLayout>;
 };
 
 export default postPage;

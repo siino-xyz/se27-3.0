@@ -5,7 +5,7 @@ createGlobalTheme(".light", themeVars, {
   rgb: {
     bg: rgb["white"],
     brand: rgb["black"],
-    glass: rgb.brand,
+    glassBg: rgb.bg,
     primary: "14 154 53",
     secoundary: "19 170 190",
     thirdly: "248 197 18",
@@ -21,7 +21,7 @@ createGlobalTheme(".dark", themeVars, {
   rgb: {
     bg: rgb["black"],
     brand: rgb["white"],
-    glass: rgb.brand,
+    glassBg: rgb.bg,
     primary: "26 217 79",
     secoundary: "69 178 225",
     thirdly: "249 207 58",

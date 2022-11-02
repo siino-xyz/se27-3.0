@@ -5,5 +5,5 @@ export * from "./header/Header";
 export * from "./meta/Meta";
 export * from "./svgAssets/SvgAssets";
 export * from "./postCard/PostCard";
-export * from "./options/Options";
-export * from "./tag/Tag";
+export * from "./option/Options";
+export * from "./termlink/TermLink";
