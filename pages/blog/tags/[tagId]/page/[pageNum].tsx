@@ -1,4 +1,4 @@
-import { PostCard } from "@components";
+import { Pagination, PostCard } from "@components";
 import { MainLayout } from "@layout/mainLayout";
 import { getBlogs, getContents, getTags, PARPAGE_LIMIT } from "@libs";
 import { NextPageWithLayout } from "@pages/_app";
@@ -10,19 +10,27 @@ type TagPageProps = {
   blogs: IBlog[];
   categories: ICategory[];
   tags: ITag[];
-  pager: number;
+  pager: [];
   currentPage: number;
-  selectedTag: string;
+  selectedTag: ITag;
 };
 
 const tagIndex: NextPageWithLayout<TagPageProps> = ({
   blogs,
   categories,
   tags,
+  pager,
+  currentPage,
+  selectedTag,
 }) => {
   return (
     <div>
       <PostCard blogs={blogs} />
+      <Pagination
+        pagination={pager}
+        currentPage={currentPage}
+        selectedTag={selectedTag}
+      />
     </div>
   );
 };
@@ -35,17 +43,13 @@ export default tagIndex;
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const pageNum: any = params?.pageNum || "1";
-
   const tagId = params?.tagId as string;
-
   const articleFilter =
     tagId !== undefined ? `tag[contains]${tagId}` : undefined;
-
   const { blogs, tags, categories, pager } = await getContents(
     pageNum,
     articleFilter
   );
-
   const selectedTag =
     tagId !== undefined
       ? tags.find((content) => content.id === tagId)
@@ -67,7 +71,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const { contents: tag } = await getTags();
   const getPaths = await Promise.all(
     tag.map((tag) =>
-      getBlogs({ filters: `tag[contains]${tag.id}`, limit: 1 }).then(
+      getBlogs({ filters: `tag[contains]${tag.id}`, limit: 5 }).then(
         ({ totalCount }) => {
           return [...Array(Math.ceil(totalCount / PARPAGE_LIMIT)).keys()].map(
             (num) => ({

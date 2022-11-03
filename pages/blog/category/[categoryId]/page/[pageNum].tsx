@@ -1,4 +1,4 @@
-import { PostCard } from "@components";
+import { Pagination, PostCard } from "@components";
 import { MainLayout } from "@layout/mainLayout";
 import { getBlogs, getCategories, getContents, PARPAGE_LIMIT } from "@libs";
 import { NextPageWithLayout } from "@pages/_app";
@@ -10,19 +10,27 @@ type CategoryPageProps = {
   blogs: IBlog[];
   categories: ICategory[];
   tags: ITag[];
-  pager: number;
+  pager: [];
   currentPage: number;
-  selectedCategory: string;
+  selectedCategory: ICategory;
 };
 
 const categoryPage: NextPageWithLayout<CategoryPageProps> = ({
   blogs,
   categories,
   tags,
+  pager,
+  currentPage,
+  selectedCategory,
 }) => {
   return (
     <div>
       <PostCard blogs={blogs} />
+      <Pagination
+        pagination={pager}
+        currentPage={currentPage}
+        selectedTag={selectedCategory}
+      />
     </div>
   );
 };
@@ -42,8 +50,9 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     categoryId !== undefined ? `category[equals]${categoryId}` : undefined;
 
   const { blogs, tags, categories, pager } = await getContents(
-    pageNum,
-    articleFilter
+    133,
+    articleFilter,
+    pageNum
   );
 
   const selectedCategory =

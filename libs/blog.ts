@@ -85,6 +85,6 @@ export const getBlogsByFliter = async (
     endpoint: "blog",
     queries: queries,
   });
-  const pager = [...Array(Math.ceil(blogs.totalCount / 10)).keys()];
+  const pager = [...Array(Math.ceil(blogs.totalCount / PARPAGE_LIMIT)).keys()];
   return { blogs, pager };
 };

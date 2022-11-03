@@ -4,7 +4,7 @@ export const styles = {
   paragraph: sprinkles({
     fontFamily: "initial",
     fontSize: { mobile: "sm", tablet: "base", desktop: "base" },
-    lineHeight: [8],
+    lineHeight: [9],
     marginBottom: "xxlarge",
     paddingX: "xsmall",
     letterSpacing: "wide",
