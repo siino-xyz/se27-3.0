@@ -16,11 +16,11 @@ export const Pagination = ({
 }: PaginationProps) => {
   const getPath = (pageNumber: number) => {
     if (selectedCategory) {
-      return `/category/${selectedCategory}/page/${pageNumber}`;
+      return `/blog/category/${selectedCategory.id}/page/${pageNumber}`;
     } else if (selectedTag) {
-      return `/tags/${selectedTag}/page/${pageNumber}`;
+      return `/blog/tags/${selectedTag.id}/page/${pageNumber}`;
     } else {
-      return `/page/${pageNumber}`;
+      return `/blog/page/${pageNumber}`;
     }
   };
   return (

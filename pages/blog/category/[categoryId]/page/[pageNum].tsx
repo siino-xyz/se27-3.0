@@ -3,7 +3,7 @@ import { MainLayout } from "@layout/mainLayout";
 import { getBlogs, getCategories, getContents, PARPAGE_LIMIT } from "@libs";
 import { NextPageWithLayout } from "@pages/_app";
 import { IBlog, ICategory, ITag } from "@types";
-import { GetStaticPaths, GetStaticProps, NextPage } from "next";
+import { GetStaticPaths, GetStaticProps } from "next";
 import React, { ReactElement } from "react";
 
 type CategoryPageProps = {
@@ -26,11 +26,15 @@ const categoryPage: NextPageWithLayout<CategoryPageProps> = ({
   return (
     <div>
       <PostCard blogs={blogs} />
-      <Pagination
-        pagination={pager}
-        currentPage={currentPage}
-        selectedTag={selectedCategory}
-      />
+      <ul>
+        {blogs.length > 0 && (
+          <Pagination
+            pagination={pager}
+            currentPage={currentPage}
+            selectedCategory={selectedCategory}
+          />
+        )}
+      </ul>
     </div>
   );
 };
@@ -43,21 +47,17 @@ export default categoryPage;
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const pageNum: any = params?.pageNum || "1";
-
   const categoryId = params?.categoryId as string;
-
   const articleFilter =
     categoryId !== undefined ? `category[equals]${categoryId}` : undefined;
-
   const { blogs, tags, categories, pager } = await getContents(
-    133,
+    1,
     articleFilter,
     pageNum
   );
-
   const selectedCategory =
     categoryId !== undefined
-      ? categories.find((category) => category.id === categoryId)
+      ? categories.find((content) => content.id === categoryId)
       : undefined;
 
   return {

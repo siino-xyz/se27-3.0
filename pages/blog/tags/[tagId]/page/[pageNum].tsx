@@ -47,8 +47,9 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const articleFilter =
     tagId !== undefined ? `tag[contains]${tagId}` : undefined;
   const { blogs, tags, categories, pager } = await getContents(
-    pageNum,
-    articleFilter
+    1,
+    articleFilter,
+    pageNum
   );
   const selectedTag =
     tagId !== undefined
@@ -71,7 +72,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const { contents: tag } = await getTags();
   const getPaths = await Promise.all(
     tag.map((tag) =>
-      getBlogs({ filters: `tag[contains]${tag.id}`, limit: 5 }).then(
+      getBlogs({ filters: `tag[contains]${tag.id}`, limit: 1 }).then(
         ({ totalCount }) => {
           return [...Array(Math.ceil(totalCount / PARPAGE_LIMIT)).keys()].map(
             (num) => ({
