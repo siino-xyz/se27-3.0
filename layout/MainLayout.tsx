@@ -2,6 +2,7 @@ import { Footer, Header, Seo } from "@components";
 import { ColorModeProvider } from "@context";
 import { ReactNode } from "react";
 import { styles } from "./MainLayout.css";
+//redeployed.
 import classNames from "classnames";
 
 type MainLayoutProps = {
