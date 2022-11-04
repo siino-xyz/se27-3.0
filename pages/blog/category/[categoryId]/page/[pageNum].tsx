@@ -1,5 +1,5 @@
 import { Pagination, PostCard } from "@components";
-import { MainLayout } from "@layout/mainLayout";
+import { MainLayout } from "@layout/MainLayout";
 import { getBlogs, getCategories, getContents, PARPAGE_LIMIT } from "@libs";
 import { NextPageWithLayout } from "@pages/_app";
 import { IBlog, ICategory, ITag } from "@types";

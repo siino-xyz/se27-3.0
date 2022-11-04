@@ -5,7 +5,7 @@ import { IBlog } from "@types";
 import { MIN_LIMIT } from "@libs";
 import { PostCard } from "@components";
 import { NextPageWithLayout } from "@pages/_app";
-import { MainLayout } from "@layout/mainLayout";
+import { MainLayout } from "@layout/MainLayout";
 import { contentMaxWidth, sprinkles } from "@styles";
 import classNames from "classnames";
 
