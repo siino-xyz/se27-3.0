@@ -7,6 +7,9 @@ export const config = {
   siteMeta: {
     globalTitle: process.env.NEXT_PUBLIC_TITLE ?? "se-27",
     globalDescription: "webサイト作ったりデザインしたりしてます",
-    url: process.env.NEXT_PUBLIC_URL ?? "",
   },
+  baseUrl:
+    process.env.NODE_ENV === "production"
+      ? process.env.NEXT_PUBLIC_BASEURL ?? ""
+      : "http://localhost:3000",
 };

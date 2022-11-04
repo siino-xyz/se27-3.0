@@ -13,7 +13,6 @@ type MainLayoutProps = {
 export const MainLayout = ({ children, headerType }: MainLayoutProps) => {
   return (
     <ColorModeProvider>
-      <Seo />
       <div className={classNames(styles.wrapper)}>
         <Header home={headerType} />
         <main className={classNames(styles.main)}>{children}</main>

@@ -27,8 +27,8 @@ export const Seo = ({
     ? `${pagedescription} | ${config.siteMeta.globalDescription}`
     : `${config.siteMeta.globalDescription}`;
   const url = pagepath
-    ? `${pagepath} | ${config.siteMeta.url}`
-    : `${config.siteMeta.url}`;
+    ? `${pagepath} | ${config.baseUrl}`
+    : `${config.baseUrl}`;
 
   return (
     <Head>

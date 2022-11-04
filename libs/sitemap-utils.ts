@@ -10,7 +10,7 @@ export async function generateSitemapXml(): Promise<string> {
   dayjs().locale("ja").format("YYYY/MM/DD");
   blogs.contents.forEach((blog) => {
     xml += `<url>
-        <loc>${config.siteMeta.url}/${blog.id}</loc>
+        <loc>${config.baseUrl}/${blog.id}</loc>
         <lastmod>${dayjs(blog.createdAt)
           .locale("ja")
           .format("YYYY/MM/DD")}</lastmod>
