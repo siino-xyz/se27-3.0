@@ -8,9 +8,7 @@ import { NextPageWithLayout } from "./_app";
 const home: NextPageWithLayout = () => {
   return (
     <ColorModeProvider>
-      <p className={text}>
-        このフf全角ffzzシックアンティークというやつで、GoogleFontsから取ってきました
-      </p>
+      <p className={text}>vercel二デプロイ</p>
     </ColorModeProvider>
   );
 };
