@@ -5,6 +5,8 @@ import {
   MicroCMSQueries,
 } from "microcms-js-sdk";
 
+export type MicroCMSResponse<T> = MicroCMSListResponse<T>;
+
 export type Queries = MicroCMSQueries;
 export type ContentBase = MicroCMSListContent;
 

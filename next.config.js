@@ -1,4 +1,5 @@
 /** @type {import('next').NextConfig} */
+/** @type {import('next-sitemap').IConfig} */ /** @type {import('next-sitemap').IConfig} */
 
 const { createVanillaExtractPlugin } = require("@vanilla-extract/next-plugin");
 const withVanillaExtract = createVanillaExtractPlugin();
@@ -6,6 +7,7 @@ const withVanillaExtract = createVanillaExtractPlugin();
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
+
   images: {
     domains: ["images.microcms-assets.io"],
   },
