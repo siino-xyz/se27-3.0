@@ -40,7 +40,7 @@ const categoryPage: NextPageWithLayout<CategoryPageProps> = ({
 };
 
 categoryPage.getLayout = function getLayout(categoryPage: ReactElement) {
-  return <MainLayout>{categoryPage}</MainLayout>;
+  return <MainLayout headerType={false}>{categoryPage}</MainLayout>;
 };
 
 export default categoryPage;

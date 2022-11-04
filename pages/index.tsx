@@ -1,12 +1,13 @@
-import { ColorModeToggle, Header } from "@components";
+import { Seo } from "@components";
 import { ColorModeProvider } from "@context";
+import { MainLayout } from "@layout";
 import { text } from "@styles/pages/top.css";
-import type { NextPage } from "next";
+import { ReactElement } from "react";
+import { NextPageWithLayout } from "./_app";
 
-const home: NextPage = () => {
+const home: NextPageWithLayout = () => {
   return (
     <ColorModeProvider>
-      <Header home={true} />
       <p className={text}>
         このフf全角ffzzシックアンティークというやつで、GoogleFontsから取ってきました
       </p>
@@ -14,4 +15,7 @@ const home: NextPage = () => {
   );
 };
 
+home.getLayout = function getLayout(home: ReactElement) {
+  return <MainLayout headerType={true}>{home}</MainLayout>;
+};
 export default home;

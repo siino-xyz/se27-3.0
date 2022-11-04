@@ -1,4 +1,4 @@
-import { Footer, Header } from "@components";
+import { Footer, Header, Seo } from "@components";
 import { ColorModeProvider } from "@context";
 import { ReactNode } from "react";
 import { styles } from "./mainLayout.css";
@@ -6,13 +6,15 @@ import classNames from "classnames";
 
 type MainLayoutProps = {
   children: ReactNode;
+  headerType: boolean;
 };
 
-export const MainLayout = ({ children }: MainLayoutProps) => {
+export const MainLayout = ({ children, headerType }: MainLayoutProps) => {
   return (
     <ColorModeProvider>
+      <Seo />
       <div className={classNames(styles.wrapper)}>
-        <Header home={false} />
+        <Header home={headerType} />
         <main className={classNames(styles.main)}>{children}</main>
         <Footer />
       </div>

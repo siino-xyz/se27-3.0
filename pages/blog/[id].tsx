@@ -57,7 +57,7 @@ const postPage: NextPageWithLayout<PostPageProps> = ({
 };
 
 postPage.getLayout = function getLayout(postPage: ReactElement) {
-  return <MainLayout>{postPage}</MainLayout>;
+  return <MainLayout headerType={false}>{postPage}</MainLayout>;
 };
 
 export default postPage;

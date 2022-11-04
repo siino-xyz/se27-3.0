@@ -50,7 +50,7 @@ const blogIndexPage: NextPageWithLayout<BlogIndexPageProps> = ({ blogs }) => {
 };
 
 blogIndexPage.getLayout = function getLayout(blogIndexPage: ReactElement) {
-  return <MainLayout>{blogIndexPage}</MainLayout>;
+  return <MainLayout headerType={false}>{blogIndexPage}</MainLayout>;
 };
 
 export default blogIndexPage;

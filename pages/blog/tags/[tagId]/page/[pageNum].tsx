@@ -26,17 +26,21 @@ const tagIndex: NextPageWithLayout<TagPageProps> = ({
   return (
     <div>
       <PostCard blogs={blogs} />
-      <Pagination
-        pagination={pager}
-        currentPage={currentPage}
-        selectedTag={selectedTag}
-      />
+      <ul>
+        {blogs.length > 0 && (
+          <Pagination
+            pagination={pager}
+            currentPage={currentPage}
+            selectedTag={selectedTag}
+          />
+        )}
+      </ul>
     </div>
   );
 };
 
 tagIndex.getLayout = function getLayout(tagIndex: ReactElement) {
-  return <MainLayout>{tagIndex}</MainLayout>;
+  return <MainLayout headerType={false}>{tagIndex}</MainLayout>;
 };
 
 export default tagIndex;
