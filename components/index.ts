@@ -11,3 +11,4 @@ export * from "./shareIcons/ShareIcons";
 export * from "./heading/Heading";
 export * from "./pagination/Pagination";
 export * from "./seo/Seo";
+export * from "./button/Button";

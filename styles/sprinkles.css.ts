@@ -48,7 +48,7 @@ const responsiveProperties = defineProperties({
   properties: {
     position: ["absolute", "relative", "fixed", "sticky"],
     display: ["none", "block", "inline", "inline-block", "flex", "grid"],
-    alignItems: ["flex-start", "center", "flex-end", "baseline"],
+    alignItems: ["flex-start", "center", "flex-end", "baseline", "stretch"],
     justifyContent: ["flex-start", "center", "flex-end", "space-between"],
     flexDirection: ["row", "row-reverse", "column", "column-reverse"],
     paddingTop: space,
@@ -61,6 +61,7 @@ const responsiveProperties = defineProperties({
     marginRight: margins,
     maxWidth: contentWidth,
     width: contentWidth,
+    height: contentWidth,
     gap: space,
     borderRadius: borderRadius,
     borderWidth: borderWidths,

@@ -27,12 +27,12 @@ export const IconLightMode = () => {
     />
   );
 };
-export const Se27BlogLogo = () => {
+export const Se27BlogLogo = ({ color }: svgTypes) => {
   return (
     <SE27_BLOG_LOGO
       className={svgRecipe({
         sizes: "blogHeaderLogo",
-        color: "initial",
+        color,
       })}
     />
   );
@@ -52,7 +52,7 @@ export const TwitterIcon = () => {
     <TWITTER_ICON
       className={svgRecipe({
         sizes: "twitterIcon",
-        color: "initial",
+        color: "twitter",
       })}
     />
   );
