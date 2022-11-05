@@ -49,7 +49,7 @@ export const Footer = () => {
             <Se27BlogLogo color="white" />
           </Link>
           <ul className={styles.navMenuList}>
-            <Link href="/" className={styles.navMenuItem}>
+            <Link href="/blog" className={styles.navMenuItem}>
               <li>新着記事</li>
             </Link>
             <Link href="/" className={styles.navMenuItem}>

@@ -5,6 +5,7 @@ export const styles = {
   container: style([
     {
       background: `rgb(${rgb.black})`,
+      borderTop: `2px dashed rgb(${rgb.white})`,
     },
     sprinkles({
       width: "full",
@@ -45,7 +46,11 @@ export const styles = {
       gap: "small",
     }),
   ]),
-  navMenuItem: style([]),
+  navMenuItem: style([
+    sprinkles({
+      fontFamily: "emblem",
+    }),
+  ]),
   divider: style({
     width: "1px",
     height: "100%",
