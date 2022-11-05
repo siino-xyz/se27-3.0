@@ -10,7 +10,7 @@ export const Header = ({ home }: HeaderProps) => {
   return (
     <header className={header}>
       <Link href={home ? "/" : "/blog"} className={linkLogo}>
-        {home ? <HomeLogo /> : <Se27BlogLogo />}
+        {home ? <HomeLogo color="initial" /> : <Se27BlogLogo />}
       </Link>
       <ColorModeToggle />
     </header>

@@ -1,24 +1,41 @@
 import { rgb } from "@styles";
-import { style } from "@vanilla-extract/css";
+import { recipe, RecipeVariants } from "@vanilla-extract/recipes";
 
-export const themeToggleIcon = style([
-  {
-    width: 32,
-    height: 32,
-    fill: `rgb(${rgb.brand})`,
+export const svgRecipe = recipe({
+  variants: {
+    sizes: {
+      themeToggleIcon: {
+        width: 32,
+        height: 32,
+      },
+      blogHeaderLogo: {
+        width: 94,
+        height: 43,
+      },
+      homeLogo: {
+        width: 94,
+        height: 26,
+      },
+      twitterIcon: {
+        width: 40,
+        height: 30,
+      },
+    },
+    color: {
+      initial: {
+        fill: `rgb(${rgb.brand})`,
+      },
+      twitter: {
+        fill: `rgb(${rgb.twitter})`,
+      },
+      black: {
+        fill: `rgb(${rgb.black})`,
+      },
+      white: {
+        fill: `rgb(${rgb.white})`,
+      },
+    },
   },
-]);
-
-export const blogHeaderLogo = style([
-  {
-    width: 94,
-    height: 43,
-    fill: `rgb(${rgb.brand})`,
-  },
-]);
-
-export const homeLogo = style({
-  width: 94,
-  height: 26,
-  fill: `rgb(${rgb.brand})`,
 });
+
+export type SvgRecipe = RecipeVariants<typeof svgRecipe>;

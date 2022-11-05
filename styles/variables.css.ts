@@ -148,6 +148,7 @@ export const themeVars = createThemeContract({
     fg1: null,
     fg2: null,
     fg3: null,
+    twitter: null,
   },
 });
 

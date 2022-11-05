@@ -14,6 +14,7 @@ createGlobalTheme(".light", themeVars, {
     fg1: rgb["gray1"],
     fg2: rgb["gray2"],
     fg3: rgb["gray3"],
+    twitter: "85 172 238",
   },
 });
 
@@ -31,5 +32,6 @@ createGlobalTheme(".dark", themeVars, {
     fg1: rgb["gray1"],
     fg2: rgb["gray2"],
     fg3: rgb["gray3"],
+    twitter: "85 172 238",
   },
 });
