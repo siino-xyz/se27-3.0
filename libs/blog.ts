@@ -13,9 +13,9 @@ export const PARPAGE_LIMIT = parseInt(config.defaultLimit);
 export const MIN_LIMIT = parseInt(config.defaultMinLimit);
 
 export const getContents = async (
-  limit: number = 1,
+  currentPage: number = 1,
   articleFilter?: string,
-  currentPage: number = 1
+  limit: number = PARPAGE_LIMIT
 ): Promise<{
   blogs: IBlog[];
   categories: ICategory[];
@@ -40,6 +40,14 @@ export const getBlogs = async (queries?: Queries) => {
   const res = await client.getList<IBlog>({
     endpoint: "blog",
     queries,
+  });
+  return res;
+};
+
+export const getAllBlogs = async () => {
+  const res = await client.getList<IBlog>({
+    endpoint: "blog",
+    queries: { limit: config.defaultMaxLimit },
   });
   return res;
 };

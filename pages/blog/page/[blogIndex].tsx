@@ -1,9 +1,8 @@
-import React, { ReactElement, ReactNode } from "react";
-import { GetStaticProps } from "next";
-import { getContents } from "@libs";
+import React, { ReactElement } from "react";
+import { GetStaticPaths, GetStaticProps } from "next";
+import { getBlogsByFliter, getContents, PARPAGE_LIMIT } from "@libs";
 import { IBlog } from "@types";
-import { MIN_LIMIT } from "@libs";
-import { PostCard } from "@components";
+import { Pagination, PostCard } from "@components";
 import { NextPageWithLayout } from "@pages/_app";
 import { MainLayout } from "@layout/MainLayout";
 import { contentMaxWidth, sprinkles } from "@styles";
@@ -11,6 +10,8 @@ import classNames from "classnames";
 
 type BlogIndexPageProps = {
   blogs: IBlog[];
+  pager: [];
+  currentPage: number;
 };
 
 type Heading2Props = {
@@ -31,7 +32,11 @@ const Heading2 = ({ text }: Heading2Props) => {
   );
 };
 
-const blogIndexPage: NextPageWithLayout<BlogIndexPageProps> = ({ blogs }) => {
+const blogIndexPage: NextPageWithLayout<BlogIndexPageProps> = ({
+  blogs,
+  pager,
+  currentPage,
+}) => {
   return (
     <div
       className={classNames(
@@ -45,6 +50,11 @@ const blogIndexPage: NextPageWithLayout<BlogIndexPageProps> = ({ blogs }) => {
     >
       <Heading2 text="新着記事" />
       <PostCard blogs={blogs} />
+      <ul>
+        {blogs.length > 0 && (
+          <Pagination pagination={pager} currentPage={currentPage} />
+        )}
+      </ul>
     </div>
   );
 };
@@ -55,11 +65,27 @@ blogIndexPage.getLayout = function getLayout(blogIndexPage: ReactElement) {
 
 export default blogIndexPage;
 
-export const getStaticProps: GetStaticProps = async () => {
-  const { blogs, tags, categories, pager } = await getContents(MIN_LIMIT);
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const page: any = params?.blogIndex || "1";
+  const { blogs, categories, tags, pager } = await getContents(page);
   return {
     props: {
+      currentPage: parseInt(page),
       blogs,
+      categories,
+      tags,
+      pager,
     },
+  };
+};
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const { pager } = await getBlogsByFliter(PARPAGE_LIMIT, 1);
+  const paths = pager.map((page) => {
+    return { params: { blogIndex: (page + 1).toString() } };
+  });
+  return {
+    paths: paths,
+    fallback: false,
   };
 };
