@@ -33,8 +33,8 @@ export const styles = {
       fontSize: "lg",
       fontWeight: "bold",
       paddingX: "xsmall",
-      paddingBottom: "xsmall",
-      paddingTop: "xsmall",
+      paddingBottom: "small",
+      paddingTop: "small",
     }),
   ]),
 };

@@ -6,8 +6,8 @@ export const tag = recipe({
     sprinkles({
       paddingX: "xsmall",
       paddingBottom: "smallest",
-      borderRadius: "xs",
-      fontWeight: "bold",
+      borderRadius: "xxs",
+      fontWeight: "normal",
       fontSize: "sm",
       lineHeight: "none",
       letterSpacing: "normal",
@@ -24,6 +24,7 @@ export const tag = recipe({
     colour: {
       initial: { color: `rgb(${rgb.brand})` },
       reverse: { color: `rgb(${rgb.bg})` },
+      white: { color: `rgb(${rgb.white})` },
     },
   },
   defaultVariants: {

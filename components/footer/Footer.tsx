@@ -55,7 +55,7 @@ export const Footer = () => {
         </nav>
         <span className={styles.divider} />
         <nav className={styles.nav}>
-          <Link href="/blog">
+          <Link href={`/blog/page/1`}>
             <Se27BlogLogo color="white" hoverd="hover" />
           </Link>
           <ul className={styles.navMenuList}></ul>

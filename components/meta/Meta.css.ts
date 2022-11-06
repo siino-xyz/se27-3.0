@@ -6,7 +6,7 @@ export const styles = {
     display: "flex",
     flexDirection: "row",
     flexWrap: "wrap",
-    gap: "small",
+    gap: "xsmall",
   }),
   label: sprinkles({
     fontSize: "sm",
@@ -49,7 +49,7 @@ export const styles = {
       paddingBottom: "small",
       display: "flex",
       flexDirection: "column",
-      gap: "small",
+      gap: "xsmall",
     }),
   ]),
   datewrapper: style([

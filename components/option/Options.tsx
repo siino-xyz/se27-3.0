@@ -38,6 +38,27 @@ export const Options: HTMLReactParserOptions = {
           </p>
         );
       }
+      if (domNode.attribs && domNode.name === "ul") {
+        return (
+          <ul className={styles.lists} {...props}>
+            {domToReact(domNode.children, Options)}
+          </ul>
+        );
+      }
+      if (domNode.attribs && domNode.name === "ol") {
+        return (
+          <ol className={styles.ollists} {...props}>
+            {domToReact(domNode.children, Options)}
+          </ol>
+        );
+      }
+      if (domNode.attribs && domNode.name === "li") {
+        return (
+          <li className={styles.listItem} {...props}>
+            {domToReact(domNode.children, Options)}
+          </li>
+        );
+      }
     }
   },
 };

@@ -12,7 +12,7 @@ export const blogPageStyles = {
     marginBottom: "large",
     fontWeight: "bold",
     fontSize: { mobile: "2xl", tablet: "3xl", desktop: "4xl" },
-    lineHeight: [7],
+    lineHeight: { mobile: "8", tablet: "10", desktop: "12" },
   }),
   textcontent: sprinkles({
     paddingTop: "xlarge",
