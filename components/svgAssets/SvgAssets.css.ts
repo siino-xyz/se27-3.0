@@ -1,4 +1,4 @@
-import { rgb } from "@styles";
+import { rgb, sprinkles } from "@styles";
 import { recipe, RecipeVariants } from "@vanilla-extract/recipes";
 
 export const svgRecipe = recipe({
@@ -35,6 +35,22 @@ export const svgRecipe = recipe({
         fill: `rgb(${rgb.white})`,
       },
     },
+    hoverd: {
+      none: {},
+      hover: [
+        sprinkles({
+          transition: "initial",
+        }),
+        {
+          ":hover": {
+            fill: `rgb(${rgb.secoundary})`,
+          },
+        },
+      ],
+    },
+  },
+  defaultVariants: {
+    hoverd: "none",
   },
 });
 

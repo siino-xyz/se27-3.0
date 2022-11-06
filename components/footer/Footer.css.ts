@@ -1,4 +1,4 @@
-import { rgb, sprinkles } from "@styles";
+import { rgb, space, sprinkles } from "@styles";
 import { style } from "@vanilla-extract/css";
 
 export const styles = {
@@ -30,31 +30,40 @@ export const styles = {
     display: "flex",
     flexWrap: "wrap",
     flexDirection: "column",
-    justifyContent: "space-between",
+    justifyContent: "flex-start",
     gap: { mobile: "large", tablet: "large" },
     paddingY: "small",
     height: "full",
   }),
   navMenuList: style([
-    {
-      color: `rgb(${rgb.white})`,
-    },
     sprinkles({
       display: "flex",
       flexDirection: "column",
-      justifyContent: "flex-end",
+      // justifyContent: "flex-start",
       gap: "small",
     }),
   ]),
   navMenuItem: style([
     sprinkles({
       fontFamily: "emblem",
+      display: "flex",
+      flexWrap: "nowrap",
+      alignItems: "center",
+      gap: "xsmall",
+      transition: "initial",
     }),
+    {
+      color: `rgb(${rgb.white})`,
+      ":hover": {
+        color: `rgb(${rgb.primary})`,
+      },
+    },
   ]),
   divider: style({
     width: "1px",
     height: "100%",
     background: `rgb(${rgb.white})`,
+    marginRight: 20,
   }),
   myTwitterLink: sprinkles({
     padding: "small",

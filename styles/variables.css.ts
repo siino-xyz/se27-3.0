@@ -134,6 +134,9 @@ export const globalVars = createGlobalTheme(":root", {
     full: "9999px",
   },
   borderWidths: { 0: "0", 1: "1px", 2: "2px", 4: "4px", 8: "8px" },
+  transitions: {
+    initial: "all .3s ease",
+  },
 });
 
 export const themeVars = createThemeContract({
@@ -164,4 +167,5 @@ export const {
   zIndex,
   borderRadius,
   borderWidths,
+  transitions,
 } = globalVars;

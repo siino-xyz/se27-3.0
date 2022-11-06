@@ -27,22 +27,24 @@ export const IconLightMode = () => {
     />
   );
 };
-export const Se27BlogLogo = ({ color }: svgTypes) => {
+export const Se27BlogLogo = ({ color, hoverd }: svgTypes) => {
   return (
     <SE27_BLOG_LOGO
       className={svgRecipe({
         sizes: "blogHeaderLogo",
         color,
+        hoverd,
       })}
     />
   );
 };
-export const HomeLogo = ({ color }: svgTypes) => {
+export const HomeLogo = ({ color, hoverd }: svgTypes) => {
   return (
     <HOME_LOGO
       className={svgRecipe({
         sizes: "homeLogo",
         color,
+        hoverd,
       })}
     />
   );

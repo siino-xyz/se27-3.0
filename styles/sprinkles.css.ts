@@ -6,7 +6,7 @@ import {
   ConditionalValue,
 } from "@vanilla-extract/sprinkles";
 import { calc } from "@vanilla-extract/css-utils";
-import { breakpoints } from "./variables.css";
+import { breakpoints, transitions } from "./variables.css";
 import {
   space,
   contentWidth,
@@ -114,6 +114,7 @@ const unresponsiveProperties = defineProperties({
     textDecoration: ["none"],
     borderStyle: ["solid", "dashed", "none"],
     cursor: ["pointer"],
+    transition: transitions,
     fontWeight: fontWeights,
     fontFamily: fonts,
   },

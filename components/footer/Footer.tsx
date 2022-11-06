@@ -4,6 +4,12 @@ import {
   Se27BlogLogo,
   TwitterIcon,
 } from "@components/svgAssets/SvgAssets";
+import {
+  Crosshair2Icon,
+  KeyboardIcon,
+  ArchiveIcon,
+  DesktopIcon,
+} from "@radix-ui/react-icons";
 import Link from "next/link";
 import { styles } from "./Footer.css";
 
@@ -26,19 +32,23 @@ export const Footer = () => {
       <div className={styles.navWrapper}>
         <nav className={styles.nav}>
           <Link href="/">
-            <HomeLogo color="white" />
+            <HomeLogo color="white" hoverd="hover" />
           </Link>
           <ul className={styles.navMenuList}>
             <Link href="/" className={styles.navMenuItem}>
+              <Crosshair2Icon />
               <li>サービス</li>
             </Link>
             <Link href="/" className={styles.navMenuItem}>
+              <KeyboardIcon />
               <li>技術スタック</li>
             </Link>
             <Link href="/" className={styles.navMenuItem}>
-              <li>つくったもの</li>
+              <ArchiveIcon />
+              <li>作ったもの</li>
             </Link>
             <Link href="/" className={styles.navMenuItem}>
+              <DesktopIcon />
               <li>制作実績</li>
             </Link>
           </ul>
@@ -46,19 +56,9 @@ export const Footer = () => {
         <span className={styles.divider} />
         <nav className={styles.nav}>
           <Link href="/blog">
-            <Se27BlogLogo color="white" />
+            <Se27BlogLogo color="white" hoverd="hover" />
           </Link>
-          <ul className={styles.navMenuList}>
-            <Link href="/blog" className={styles.navMenuItem}>
-              <li>新着記事</li>
-            </Link>
-            <Link href="/" className={styles.navMenuItem}>
-              <li>カテゴリ</li>
-            </Link>
-            <Link href="/" className={styles.navMenuItem}>
-              <li>タグ</li>
-            </Link>
-          </ul>
+          <ul className={styles.navMenuList}></ul>
         </nav>
       </div>
 
