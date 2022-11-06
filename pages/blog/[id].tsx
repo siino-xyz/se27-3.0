@@ -36,7 +36,7 @@ const postPage: NextPageWithLayout<PostPageProps> = ({
         })
       )}
     >
-      <BlogImage src={blog.eyeCatch.url} alt={"alt"} />
+      {/* <BlogImage src={blog.eyeCatch.url} alt={"alt"} /> */}
       <div className={blogPageStyles.header}>
         <h1 className={blogPageStyles.title}>{blog.title}</h1>
         <Meta

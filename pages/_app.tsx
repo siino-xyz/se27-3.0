@@ -1,8 +1,9 @@
 import type { AppProps } from "next/app";
 import { ReactElement, ReactNode } from "react";
 import { NextPage } from "next";
-import { Zen_Kaku_Gothic_Antique } from "@next/font/google";
 import "../styles/globals.css";
+import { Zen_Kaku_Gothic_Antique } from "@next/font/google";
+import localfont from "@next/font/local";
 
 const ZenKakuGothicAntique_normal = Zen_Kaku_Gothic_Antique({
   weight: "400",
@@ -12,6 +13,8 @@ const ZenKakuGothicAntique_bold = Zen_Kaku_Gothic_Antique({
   weight: "700",
   subsets: ["japanese"],
 });
+
+const kiChoJIS = localfont({ src: "./KikaiChokokuJISMd.woff" });
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: ReactElement) => ReactNode;
@@ -28,10 +31,9 @@ const MyApp = ({ Component, pageProps }: AppPropsWithLayout) => {
       <style jsx global>{`
         html {
           font-family: ${ZenKakuGothicAntique_normal.style.fontFamily},
-            ${ZenKakuGothicAntique_bold};
+            ${ZenKakuGothicAntique_bold}, ${kiChoJIS};
         }
       `}</style>
-
       <Component {...pageProps} />
     </>
   );
