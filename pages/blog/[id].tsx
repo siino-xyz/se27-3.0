@@ -36,7 +36,30 @@ const postPage: NextPageWithLayout<PostPageProps> = ({
         })
       )}
     >
-      <BlogImage src={blog.eyeCatch.url} alt={"alt"} />
+      {/* <BlogImage src={blog.eyeCatch.url} alt={"alt"} /> */}
+      <picture>
+        <source
+          media="(min-width: 1160px)"
+          type="image/webp"
+          srcSet={`${blog.eyeCatch.url}?w=820&fm=webp, ${blog.eyeCatch.url}?w=1640&fm=webp 2x`}
+        />
+        <source
+          media="(min-width: 820px)"
+          type="image/webp"
+          srcSet={`${blog.eyeCatch.url}?w=740&fm=webp, ${blog.eyeCatch.url}?w=1480&fm=webp 2x`}
+        />
+        <source
+          media="(min-width: 768px)"
+          type="image/webp"
+          srcSet={`${blog.eyeCatch.url}?w=728&fm=webp, ${blog.eyeCatch.url}?w=1456&fm=webp 2x`}
+        />
+        <source
+          media="(min-width: 768px)"
+          type="image/webp"
+          srcSet={`${blog.eyeCatch.url}?w=375&fm=webp, ${blog.eyeCatch.url}?w=750&fm=webp 2x`}
+        />
+        <img src={`${blog.eyeCatch.url}?w=820&q=100`} alt={blog.title} />
+      </picture>
       <div className={blogPageStyles.header}>
         <h1 className={blogPageStyles.title}>{blog.title}</h1>
         <Meta
