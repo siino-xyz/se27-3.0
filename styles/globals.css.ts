@@ -18,8 +18,3 @@ globalFontFace("kiChoJIS", {
   fontDisplay: "swap",
   src: "url(/fonts/KikaiChokokuJISMd.woff) format('woff')",
 });
-
-globalFontFace("MOBO", {
-  fontDisplay: "swap",
-  src: "url(/fonts/MOBO.woff) format('woff')",
-});

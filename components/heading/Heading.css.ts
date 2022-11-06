@@ -3,7 +3,8 @@ import { recipe, RecipeVariants } from "@vanilla-extract/recipes";
 
 export const headingRecipe = recipe({
   base: sprinkles({
-    fontFamily: "heading",
+    fontWeight: "bold",
+    letterSpacing: "tight",
   }),
   variants: {
     headings: {

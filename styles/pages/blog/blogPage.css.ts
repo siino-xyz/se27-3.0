@@ -10,7 +10,7 @@ export const blogPageStyles = {
   }),
   title: sprinkles({
     marginBottom: "large",
-    fontFamily: "heading",
+    fontWeight: "bold",
     fontSize: { mobile: "2xl", tablet: "3xl", desktop: "4xl" },
     lineHeight: [7],
   }),
