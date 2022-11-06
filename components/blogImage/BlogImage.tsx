@@ -14,6 +14,9 @@ export const BlogImage = ({ src, alt, radius }: BlogImageProps) => {
         src={src}
         alt={alt}
         fill
+        sizes="(max-width: 768px) 50vw,
+              (max-width: 1200px) 90vw,
+              33vw"
         className={classNames(
           styles.content,
           blogImageRecipe({
