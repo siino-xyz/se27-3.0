@@ -43,7 +43,7 @@ const blogIndexPage: NextPageWithLayout<BlogIndexPageProps> = ({ blogs }) => {
         })
       )}
     >
-      <Heading2 text="記事一覧" />
+      <Heading2 text="新着記事" />
       <PostCard blogs={blogs} />
     </div>
   );

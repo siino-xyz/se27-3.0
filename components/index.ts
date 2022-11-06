@@ -12,3 +12,4 @@ export * from "./heading/Heading";
 export * from "./pagination/Pagination";
 export * from "./seo/Seo";
 export * from "./button/Button";
+export * from "./time/Time";

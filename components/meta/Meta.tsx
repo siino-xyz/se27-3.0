@@ -1,4 +1,5 @@
 import { TermLink } from "@components/termlink/TermLink";
+import { Time } from "@components/time/Time";
 import { ICategory, ITag } from "@types";
 import classNames from "classnames";
 import dayjs from "dayjs";
@@ -24,7 +25,7 @@ const Tags = ({ tags }: PostMetaProps) => {
                 hashTag={true}
                 href={`/blog/tags/${tag.id}/page/1`}
                 background="primary"
-                colour='reverse'
+                colour="reverse"
                 content={tag?.name}
               />
             </li>
@@ -75,7 +76,9 @@ export const Meta = ({
           </div>
           <div className={styles.contentWrapper}>
             <span className={styles.label}>Posted on:</span>
-            <span className={styles.date}>{dateFormat}</span>
+            <Time dateTime={createdAt} className={styles.date}>
+              {dateFormat}
+            </Time>
           </div>
         </div>
       ) : (
@@ -85,9 +88,12 @@ export const Meta = ({
             <Tags tags={tags} />
           </div>
           <div className={styles.datewrapper}>
-            <span className={classNames(styles.date, styles.dateforCard)}>
+            <Time
+              dateTime={createdAt}
+              className={classNames(styles.date, styles.dateforCard)}
+            >
               {dateFormat}
-            </span>
+            </Time>
           </div>
         </div>
       )}
