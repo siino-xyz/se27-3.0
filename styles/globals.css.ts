@@ -14,7 +14,7 @@ globalStyle("#__next", {
   minHeight: "100vh",
 });
 
-// globalFontFace("kiChoJIS", {
-//   fontDisplay: "swap",
-//   src: "url(/fonts/KikaiChokokuJISMd.woff) format('woff')",
-// });
+globalFontFace("kiChoJIS", {
+  fontDisplay: "swap",
+  src: "url(/fonts/KikaiChokokuJISMd.woff) format('woff')",
+});
