@@ -17,7 +17,7 @@ export const globalVars = createGlobalTheme(":root", {
     heading:
       'Arial,"Hiragino Kaku Gothic ProN","Hiragino Sans",Meiryo,sans-serif',
     emblem:
-      '"kiChoJIS",Arial,"Hiragino Kaku Gothic ProN","Hiragino Sans",Meiryo,sans-serif',
+      'kiChoJIS, Arial,"Hiragino Kaku Gothic ProN","Hiragino Sans",Meiryo,sans-serif',
   },
   fontSizes: {
     xs: "0.75rem",
