@@ -1,4 +1,4 @@
-import { globalStyle, globalFontFace } from "@vanilla-extract/css";
+import { globalStyle, globalFontFace, style } from "@vanilla-extract/css";
 import "styles/preflight.css";
 import { rgb } from "./variables.css";
 import "./theme.css";

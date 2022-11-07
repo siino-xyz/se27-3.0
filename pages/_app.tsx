@@ -14,7 +14,10 @@ const ZenKakuGothicAntique_bold = Zen_Kaku_Gothic_Antique({
   subsets: ["japanese"],
 });
 
-const kiChoJIS = localfont({ src: "./KikaiChokokuJISMd.woff" });
+const kiChoJIS = localfont({
+  src: "./KikaiChokokuJISMd.woff",
+  variable: "--kicho-jis",
+});
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: ReactElement) => ReactNode;
@@ -31,7 +34,7 @@ const MyApp = ({ Component, pageProps }: AppPropsWithLayout) => {
       <style jsx global>{`
         html {
           font-family: ${ZenKakuGothicAntique_normal.style.fontFamily},
-            ${ZenKakuGothicAntique_bold}, ${kiChoJIS};
+            ${ZenKakuGothicAntique_bold}, ${kiChoJIS.variable};
         }
       `}</style>
       <Component {...pageProps} />

@@ -16,8 +16,9 @@ export const globalVars = createGlobalTheme(":root", {
       'Zen Kaku Gothic Antique, "Helvetica Neue",Arial,"Hiragino Kaku Gothic ProN","Hiragino Sans",Meiryo,sans-serif',
     heading:
       'Arial,"Hiragino Kaku Gothic ProN","Hiragino Sans",Meiryo,sans-serif',
-    emblem:
-      'kiChoJIS, Arial,"Hiragino Kaku Gothic ProN","Hiragino Sans",Meiryo,sans-serif',
+    emblem: "var(--kicho-jis)",
+    // emblem:
+    //   'kiChoJIS, Arial,"Hiragino Kaku Gothic ProN","Hiragino Sans",Meiryo,sans-serif',
   },
   fontSizes: {
     xs: "0.75rem",
