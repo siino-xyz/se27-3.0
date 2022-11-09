@@ -15,7 +15,7 @@ const ZenKakuGothicAntique_bold = Zen_Kaku_Gothic_Antique({
 });
 
 const kiChoJIS = localfont({
-  src: "./KikaiChokokuJISMd.woff",
+  src: "./font/KikaiChokokuJISMd.woff",
   variable: "--kicho-jis",
   display: "swap",
   preload: true,

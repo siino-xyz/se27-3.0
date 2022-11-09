@@ -9,7 +9,7 @@ type HeaderProps = {
 export const Header = ({ home }: HeaderProps) => {
   return (
     <header className={header}>
-      <Link href={home ? "/" : "/blog"} className={linkLogo}>
+      <Link href={home ? "/" : "/blog/page/1"} className={linkLogo}>
         {home ? <HomeLogo color="initial" /> : <Se27BlogLogo color="initial" />}
       </Link>
       <ColorModeToggle />

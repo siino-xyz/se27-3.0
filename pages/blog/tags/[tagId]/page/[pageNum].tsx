@@ -52,8 +52,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     tagId !== undefined ? `tag[contains]${tagId}` : undefined;
   const { blogs, tags, categories, pager } = await getContents(
     pageNum,
-    articleFilter,
-    1
+    articleFilter
   );
   const selectedTag =
     tagId !== undefined

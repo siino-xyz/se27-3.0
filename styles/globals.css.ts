@@ -6,6 +6,7 @@ import "./theme.css";
 globalStyle("body", {
   color: `rgb(${rgb.brand})`,
   background: `rgb(${rgb.bg})`,
+  transition: "all .3s ease",
 });
 
 globalStyle("#__next", {
@@ -13,8 +14,3 @@ globalStyle("#__next", {
   flexDirection: "column",
   minHeight: "100vh",
 });
-
-// globalFontFace("kiChoJIS", {
-//   fontDisplay: "swap",
-//   src: "url(/fonts/KikaiChokokuJISMd.woff) format('woff')",
-// });

@@ -52,8 +52,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     categoryId !== undefined ? `category[equals]${categoryId}` : undefined;
   const { blogs, tags, categories, pager } = await getContents(
     pageNum,
-    articleFilter,
-    1
+    articleFilter
   );
   const selectedCategory =
     categoryId !== undefined
