@@ -14,10 +14,10 @@ type BlogIndexPageProps = {
   currentPage: number;
 };
 
-type Heading2Props = {
+type H2Props = {
   text: string;
 };
-const Heading2 = ({ text }: Heading2Props) => {
+const H2 = ({ text }: H2Props) => {
   return (
     <h2
       className={sprinkles({
@@ -48,8 +48,10 @@ const blogIndexPage: NextPageWithLayout<BlogIndexPageProps> = ({
         })
       )}
     >
-      <Heading2 text="新着記事" />
+      <H2 text="新着記事" />
       <PostCard blogs={blogs} />
+      <H2 text="カテゴリ" />
+      <H2 text="タグ" />
       <ul>
         {blogs.length > 0 && (
           <Pagination pagination={pager} currentPage={currentPage} />
